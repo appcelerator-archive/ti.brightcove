@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		24416B8111C4CA220047AFDD /* Build & Test */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */;
+			buildPhases = (
+				24416B8011C4CA220047AFDD /* ShellScript */,
+			);
+			dependencies = (
+				24416B8511C4CA280047AFDD /* PBXTargetDependency */,
+			);
+			name = "Build & Test";
+			productName = "Build & test";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		24DD6CF91134B3F500162E58 /* TiBrightcoveModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* TiBrightcoveModule.h */; };
+		24DD6CFA1134B3F500162E58 /* TiBrightcoveModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* TiBrightcoveModule.m */; };
+		24DE9E1111C5FE74003F90F6 /* TiBrightcoveModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* TiBrightcoveModuleAssets.h */; };
+		24DE9E1211C5FE74003F90F6 /* TiBrightcoveModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiBrightcoveModuleAssets.m */; };
+		24FDB28611EC3F2000EF1155 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24FDB28511EC3F2000EF1155 /* UIKit.framework */; };
+		24FDB28B11EC3F5100EF1155 /* libBrightcoveiPadiPhoneKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24FDB28911EC3F5100EF1155 /* libBrightcoveiPadiPhoneKit.a */; };
+		24FDB28C11EC3F5100EF1155 /* libBrightcoveMediaAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24FDB28A11EC3F5100EF1155 /* libBrightcoveMediaAPI.a */; };
+		24FDB29711EC3F5F00EF1155 /* BCCuePoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 24FDB28E11EC3F5F00EF1155 /* BCCuePoint.h */; };
+		24FDB29811EC3F5F00EF1155 /* BCImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 24FDB28F11EC3F5F00EF1155 /* BCImage.h */; };
+		24FDB29911EC3F5F00EF1155 /* BCItemCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 24FDB29011EC3F5F00EF1155 /* BCItemCollection.h */; };
+		24FDB29A11EC3F5F00EF1155 /* BCMediaAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 24FDB29111EC3F5F00EF1155 /* BCMediaAPI.h */; };
+		24FDB29B11EC3F5F00EF1155 /* BCMoviePlayerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 24FDB29211EC3F5F00EF1155 /* BCMoviePlayerController.h */; };
+		24FDB29C11EC3F5F00EF1155 /* BCObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 24FDB29311EC3F5F00EF1155 /* BCObject.h */; };
+		24FDB29D11EC3F5F00EF1155 /* BCPlaylist.h in Headers */ = {isa = PBXBuildFile; fileRef = 24FDB29411EC3F5F00EF1155 /* BCPlaylist.h */; };
+		24FDB29E11EC3F5F00EF1155 /* BCRendition.h in Headers */ = {isa = PBXBuildFile; fileRef = 24FDB29511EC3F5F00EF1155 /* BCRendition.h */; };
+		24FDB29F11EC3F5F00EF1155 /* BCVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = 24FDB29611EC3F5F00EF1155 /* BCVideo.h */; };
+		AA747D9F0F9514B9006C5449 /* TiBrightcove_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiBrightcove_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24416B8411C4CA280047AFDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = brightcove;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24DD6CF71134B3F500162E58 /* TiBrightcoveModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiBrightcoveModule.h; path = Classes/TiBrightcoveModule.h; sourceTree = "<group>"; };
+		24DD6CF81134B3F500162E58 /* TiBrightcoveModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiBrightcoveModule.m; path = Classes/TiBrightcoveModule.m; sourceTree = "<group>"; };
+		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
+		24DE9E0F11C5FE74003F90F6 /* TiBrightcoveModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiBrightcoveModuleAssets.h; path = Classes/TiBrightcoveModuleAssets.h; sourceTree = "<group>"; };
+		24DE9E1011C5FE74003F90F6 /* TiBrightcoveModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiBrightcoveModuleAssets.m; path = Classes/TiBrightcoveModuleAssets.m; sourceTree = "<group>"; };
+		24FDB28511EC3F2000EF1155 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		24FDB28911EC3F5100EF1155 /* libBrightcoveiPadiPhoneKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBrightcoveiPadiPhoneKit.a; sourceTree = "<group>"; };
+		24FDB28A11EC3F5100EF1155 /* libBrightcoveMediaAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBrightcoveMediaAPI.a; sourceTree = "<group>"; };
+		24FDB28E11EC3F5F00EF1155 /* BCCuePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCCuePoint.h; sourceTree = "<group>"; };
+		24FDB28F11EC3F5F00EF1155 /* BCImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCImage.h; sourceTree = "<group>"; };
+		24FDB29011EC3F5F00EF1155 /* BCItemCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCItemCollection.h; sourceTree = "<group>"; };
+		24FDB29111EC3F5F00EF1155 /* BCMediaAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMediaAPI.h; sourceTree = "<group>"; };
+		24FDB29211EC3F5F00EF1155 /* BCMoviePlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMoviePlayerController.h; sourceTree = "<group>"; };
+		24FDB29311EC3F5F00EF1155 /* BCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCObject.h; sourceTree = "<group>"; };
+		24FDB29411EC3F5F00EF1155 /* BCPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCPlaylist.h; sourceTree = "<group>"; };
+		24FDB29511EC3F5F00EF1155 /* BCRendition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCRendition.h; sourceTree = "<group>"; };
+		24FDB29611EC3F5F00EF1155 /* BCVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCVideo.h; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* TiBrightcove_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiBrightcove_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libTiBrightcove.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiBrightcove.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				24FDB28611EC3F2000EF1155 /* UIKit.framework in Frameworks */,
+				24FDB28B11EC3F5100EF1155 /* libBrightcoveiPadiPhoneKit.a in Frameworks */,
+				24FDB28C11EC3F5100EF1155 /* libBrightcoveMediaAPI.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libTiBrightcove.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* brightcove */ = {
+			isa = PBXGroup;
+			children = (
+				24FDB28D11EC3F5F00EF1155 /* headers */,
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = brightcove;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24FDB28911EC3F5100EF1155 /* libBrightcoveiPadiPhoneKit.a */,
+				24FDB28A11EC3F5100EF1155 /* libBrightcoveMediaAPI.a */,
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+				24FDB28511EC3F2000EF1155 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				24DE9E0F11C5FE74003F90F6 /* TiBrightcoveModuleAssets.h */,
+				24DE9E1011C5FE74003F90F6 /* TiBrightcoveModuleAssets.m */,
+				24DD6CF71134B3F500162E58 /* TiBrightcoveModule.h */,
+				24DD6CF81134B3F500162E58 /* TiBrightcoveModule.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		24FDB28D11EC3F5F00EF1155 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				24FDB28E11EC3F5F00EF1155 /* BCCuePoint.h */,
+				24FDB28F11EC3F5F00EF1155 /* BCImage.h */,
+				24FDB29011EC3F5F00EF1155 /* BCItemCollection.h */,
+				24FDB29111EC3F5F00EF1155 /* BCMediaAPI.h */,
+				24FDB29211EC3F5F00EF1155 /* BCMoviePlayerController.h */,
+				24FDB29311EC3F5F00EF1155 /* BCObject.h */,
+				24FDB29411EC3F5F00EF1155 /* BCPlaylist.h */,
+				24FDB29511EC3F5F00EF1155 /* BCRendition.h */,
+				24FDB29611EC3F5F00EF1155 /* BCVideo.h */,
+			);
+			path = headers;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* TiBrightcove_Prefix.pch */,
+				24DD6D1B1134B66800162E58 /* titanium.xcconfig */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA747D9F0F9514B9006C5449 /* TiBrightcove_Prefix.pch in Headers */,
+				24DD6CF91134B3F500162E58 /* TiBrightcoveModule.h in Headers */,
+				24DE9E1111C5FE74003F90F6 /* TiBrightcoveModuleAssets.h in Headers */,
+				24FDB29711EC3F5F00EF1155 /* BCCuePoint.h in Headers */,
+				24FDB29811EC3F5F00EF1155 /* BCImage.h in Headers */,
+				24FDB29911EC3F5F00EF1155 /* BCItemCollection.h in Headers */,
+				24FDB29A11EC3F5F00EF1155 /* BCMediaAPI.h in Headers */,
+				24FDB29B11EC3F5F00EF1155 /* BCMoviePlayerController.h in Headers */,
+				24FDB29C11EC3F5F00EF1155 /* BCObject.h in Headers */,
+				24FDB29D11EC3F5F00EF1155 /* BCPlaylist.h in Headers */,
+				24FDB29E11EC3F5F00EF1155 /* BCRendition.h in Headers */,
+				24FDB29F11EC3F5F00EF1155 /* BCVideo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* brightcove */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "brightcove" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = brightcove;
+			productName = brightcove;
+			productReference = D2AAC07E0554694100DB518D /* libTiBrightcove.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "brightcove" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 0867D691FE84028FC02AAC07 /* brightcove */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* brightcove */,
+				24416B8111C4CA220047AFDD /* Build & Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24416B8011C4CA220047AFDD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\npython \"${TITANIUM_SDK}/titanium.py\" run --dir=\"${PROJECT_DIR}\"\nexit $?\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24DD6CFA1134B3F500162E58 /* TiBrightcoveModule.m in Sources */,
+				24DE9E1211C5FE74003F90F6 /* TiBrightcoveModuleAssets.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24416B8511C4CA280047AFDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* brightcove */;
+			targetProxy = 24416B8411C4CA280047AFDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/TiBrightcove.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiBrightcove_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = TiBrightcove;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/TiBrightcove.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiBrightcove_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = TiBrightcove;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				EXCLUDED_SOURCE_FILE_NAMES = (
+					SBJSON.h,
+					SBJSON.m,
+				);
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.0;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				EXCLUDED_SOURCE_FILE_NAMES = (
+					SBJSON.h,
+					SBJSON.m,
+				);
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.0;
+			};
+			name = Release;
+		};
+		24416B8211C4CA220047AFDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Build & test";
+			};
+			name = Debug;
+		};
+		24416B8311C4CA220047AFDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Build & test";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "brightcove" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "brightcove" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24416B8211C4CA220047AFDD /* Debug */,
+				24416B8311C4CA220047AFDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

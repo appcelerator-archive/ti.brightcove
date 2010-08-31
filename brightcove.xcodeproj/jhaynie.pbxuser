@@ -1,0 +1,271 @@
+// !$*UTF8*$!
+{
+	0867D690FE84028FC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeSDKPreference = iphonesimulator4.0;
+		activeTarget = D2AAC07D0554694100DB518D /* brightcove */;
+		addToTargets = (
+			D2AAC07D0554694100DB518D /* brightcove */,
+		);
+		codeSenseManager = 2420AF2511EC3F0300CC3D73 /* Code sense */;
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					10,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 300695309;
+			PBXWorkspaceStateSaveDate = 300695309;
+		};
+		perUserProjectItems = {
+			24FDB2A611EC431300EF1155 /* PBXTextBookmark */ = 24FDB2A611EC431300EF1155 /* PBXTextBookmark */;
+			24FDB2A811EC431300EF1155 /* PBXTextBookmark */ = 24FDB2A811EC431300EF1155 /* PBXTextBookmark */;
+			24FDB2A911EC431300EF1155 /* PBXTextBookmark */ = 24FDB2A911EC431300EF1155 /* PBXTextBookmark */;
+			24FDB2AE11EC43AC00EF1155 /* PBXTextBookmark */ = 24FDB2AE11EC43AC00EF1155 /* PBXTextBookmark */;
+			24FDB2AF11EC43AC00EF1155 /* PBXTextBookmark */ = 24FDB2AF11EC43AC00EF1155 /* PBXTextBookmark */;
+			24FDB2B011EC43AC00EF1155 /* PBXTextBookmark */ = 24FDB2B011EC43AC00EF1155 /* PBXTextBookmark */;
+			24FDB2B111EC43AC00EF1155 /* PBXTextBookmark */ = 24FDB2B111EC43AC00EF1155 /* PBXTextBookmark */;
+			24FDB2B211EC43AC00EF1155 /* PBXTextBookmark */ = 24FDB2B211EC43AC00EF1155 /* PBXTextBookmark */;
+			24FDB2B311EC43AC00EF1155 /* PBXTextBookmark */ = 24FDB2B311EC43AC00EF1155 /* PBXTextBookmark */;
+			24FDB2B711EC444700EF1155 /* PBXTextBookmark */ = 24FDB2B711EC444700EF1155 /* PBXTextBookmark */;
+			24FDB2B911EC444700EF1155 /* PBXTextBookmark */ = 24FDB2B911EC444700EF1155 /* PBXTextBookmark */;
+			24FDB60311ED8C9700EF1155 /* PBXTextBookmark */ = 24FDB60311ED8C9700EF1155 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 2420AF2411EC3F0300CC3D73 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	2420AF2411EC3F0300CC3D73 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	2420AF2511EC3F0300CC3D73 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	24416B8111C4CA220047AFDD /* Build & Test */ = {
+		activeExec = 0;
+	};
+	24DD6CF81134B3F500162E58 /* TiBrightcoveModule.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1312.43, 1134}}";
+			sepNavSelRange = "{741, 56}";
+			sepNavVisRange = "{390, 836}";
+		};
+	};
+	24FDB28E11EC3F5F00EF1155 /* BCCuePoint.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 1071}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1394}";
+		};
+	};
+	24FDB28F11EC3F5F00EF1155 /* BCImage.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 987}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1148}";
+		};
+	};
+	24FDB29011EC3F5F00EF1155 /* BCItemCollection.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 987}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1630}";
+		};
+	};
+	24FDB29111EC3F5F00EF1155 /* BCMediaAPI.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1171.55, 6762}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{1930, 817}";
+		};
+	};
+	24FDB29211EC3F5F00EF1155 /* BCMoviePlayerController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1745.91, 3150}}";
+			sepNavSelRange = "{5029, 0}";
+			sepNavVisRange = "{4519, 964}";
+		};
+	};
+	24FDB29311EC3F5F00EF1155 /* BCObject.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 1890}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1329}";
+		};
+	};
+	24FDB29411EC3F5F00EF1155 /* BCPlaylist.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 1344}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{1189, 775}";
+		};
+	};
+	24FDB29511EC3F5F00EF1155 /* BCRendition.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 1407}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1148}";
+		};
+	};
+	24FDB29611EC3F5F00EF1155 /* BCVideo.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 2331}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{3072, 840}";
+		};
+	};
+	24FDB2A611EC431300EF1155 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24FDB28E11EC3F5F00EF1155 /* BCCuePoint.h */;
+		name = "BCCuePoint.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1394;
+		vrLoc = 0;
+	};
+	24FDB2A811EC431300EF1155 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24FDB29011EC3F5F00EF1155 /* BCItemCollection.h */;
+		name = "BCItemCollection.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1630;
+		vrLoc = 0;
+	};
+	24FDB2A911EC431300EF1155 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24FDB29311EC3F5F00EF1155 /* BCObject.h */;
+		name = "BCObject.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1329;
+		vrLoc = 0;
+	};
+	24FDB2AE11EC43AC00EF1155 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24FDB29411EC3F5F00EF1155 /* BCPlaylist.h */;
+		name = "BCPlaylist.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 775;
+		vrLoc = 1189;
+	};
+	24FDB2AF11EC43AC00EF1155 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24FDB29511EC3F5F00EF1155 /* BCRendition.h */;
+		name = "BCRendition.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1148;
+		vrLoc = 0;
+	};
+	24FDB2B011EC43AC00EF1155 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24FDB29611EC3F5F00EF1155 /* BCVideo.h */;
+		name = "BCVideo.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 840;
+		vrLoc = 3072;
+	};
+	24FDB2B111EC43AC00EF1155 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24FDB28F11EC3F5F00EF1155 /* BCImage.h */;
+		name = "BCImage.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1148;
+		vrLoc = 0;
+	};
+	24FDB2B211EC43AC00EF1155 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24FDB29111EC3F5F00EF1155 /* BCMediaAPI.h */;
+		name = "BCMediaAPI.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 817;
+		vrLoc = 1930;
+	};
+	24FDB2B311EC43AC00EF1155 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24FDB29211EC3F5F00EF1155 /* BCMoviePlayerController.h */;
+		name = "BCMoviePlayerController.h: 109";
+		rLen = 0;
+		rLoc = 5029;
+		rType = 0;
+		vrLen = 964;
+		vrLoc = 4519;
+	};
+	24FDB2B711EC444700EF1155 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24FDB2B811EC444700EF1155 /* UIWindow.h */;
+		name = "UIWindow.h: 18";
+		rLen = 50;
+		rLoc = 344;
+		rType = 0;
+		vrLen = 1416;
+		vrLoc = 163;
+	};
+	24FDB2B811EC444700EF1155 /* UIWindow.h */ = {
+		isa = PBXFileReference;
+		name = UIWindow.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h;
+		sourceTree = "<absolute>";
+	};
+	24FDB2B911EC444700EF1155 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24DD6CF81134B3F500162E58 /* TiBrightcoveModule.m */;
+		name = "TiBrightcoveModule.m: 44";
+		rLen = 0;
+		rLoc = 1218;
+		rType = 0;
+		vrLen = 781;
+		vrLoc = 300;
+	};
+	24FDB60311ED8C9700EF1155 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24DD6CF81134B3F500162E58 /* TiBrightcoveModule.m */;
+		name = "TiBrightcoveModule.m: 34";
+		rLen = 56;
+		rLoc = 741;
+		rType = 0;
+		vrLen = 836;
+		vrLoc = 390;
+	};
+	D2AAC07D0554694100DB518D /* brightcove */ = {
+		activeExec = 0;
+	};
+}
