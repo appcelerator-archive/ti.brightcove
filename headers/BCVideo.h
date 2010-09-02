@@ -36,9 +36,9 @@
 @interface BCVideo : NSObject 
 {
 	NSString *name;
-	double videoId;
+	long long videoId;
 	NSString *referenceId;
-	double accountId;
+	long long accountId;
 	NSString *shortDescription;
 	NSString *longDescription;
 	NSString *FLVURL;
@@ -55,21 +55,21 @@
 	NSArray *tags;
 	NSString *videoStillURL;
 	NSString *thumbnailURL;
-	double length;
+	long long length;
 	BCEconomics economics;
 	BOOL geoFiltered;
 	NSArray *geoFilteredCountries;
 	BOOL geoFilterExclude;
 	NSArray *cuePoints;
-	int playsTotal;
-	int playsTrailingWeek;
+	long long playsTotal;
+	long long playsTrailingWeek;
     NSDictionary *customFields;
 }
 
 @property (nonatomic, retain) NSString *name;
-@property (nonatomic, assign) double videoId;
+@property (nonatomic, assign) long long videoId;
 @property (nonatomic, retain) NSString *referenceId;
-@property (nonatomic, assign) double accountId;
+@property (nonatomic, assign) long long accountId;
 @property (nonatomic, retain) NSString *shortDescription;
 @property (nonatomic, retain) NSString *longDescription;
 @property (nonatomic, retain) NSString *FLVURL;
@@ -86,14 +86,14 @@
 @property (nonatomic, retain) NSArray *tags;
 @property (nonatomic, retain) NSString *videoStillURL;
 @property (nonatomic, retain) NSString *thumbnailURL;
-@property (nonatomic, assign) double length;
+@property (nonatomic, assign) long long length;
 @property (nonatomic, assign) BCEconomics economics;
 @property (nonatomic, assign) BOOL geoFiltered;
 @property (nonatomic, retain) NSArray *geoFilteredCountries;
 @property (nonatomic, assign) BOOL geoFilterExclude;
 @property (nonatomic, retain) NSArray *cuePoints;
-@property (nonatomic, assign) int playsTotal;
-@property (nonatomic, assign) int playsTrailingWeek;
+@property (nonatomic, assign) long long playsTotal;
+@property (nonatomic, assign) long long playsTrailingWeek;
 @property (nonatomic, retain) NSDictionary *customFields;
 
 + (BCVideo *) initFromDictionary:(NSDictionary *) dict;

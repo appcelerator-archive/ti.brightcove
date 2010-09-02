@@ -96,8 +96,6 @@
 {
 	NSString *readToken;
     BCMediaDeliveryType mediaDeliveryType;
-    BCRegion region;
-    BOOL logging;
 }
 
 /**
@@ -116,22 +114,6 @@
  value is BCMediaDeliveryTypeDefault.
 */ 
 @property (nonatomic, assign) BCMediaDeliveryType mediaDeliveryType;
-
-/**
-  @brief Used to target different end points, api.brightcove.com and api.brightcove.co.jp
- 
- Developers deploying apps that work with content from a JP region account can use this
- setting to target api.brightcove.co.jp. The default is api.brightcove.com, BCRegionUS.
-*/
-@property (nonatomic, assign) BCRegion region;
-
-/**
- @brief Turns on call and response logging to the console
- 
- The data being sent to the server and the raw response is logged to the console.
- Turn this setting off for release builds.
- */
-@property (nonatomic, assign) BOOL logging;
 
 /**
  @brief Convenience initialization method
@@ -164,17 +146,17 @@
 						error:(NSError **) error;
 
 /// A convenience method which invokes findVideoById using the specified id and default arguments for optional parameters
-- (BCVideo *) findVideoById:(double) videoId error:(NSError **) error;
+- (BCVideo *) findVideoById:(long long) videoId error:(NSError **) error;
 
 /// This method wraps the remote find_video_by_id API request and returns a BCVideo instance containing the results
-- (BCVideo *) findVideoById:(double) videoId videoFields:(NSArray *)videoFields 
+- (BCVideo *) findVideoById:(long long) videoId videoFields:(NSArray *)videoFields 
 						customFields:(NSArray *)customFields error:(NSError **) error;
 
 /// A convenience method which invokes findRelatedVideos using the specified id and default arguments for optional parameters
-- (BCItemCollection *) findRelatedVideos:(double) videoId error:(NSError **) error;
+- (BCItemCollection *) findRelatedVideos:(long long) videoId error:(NSError **) error;
 
 /// This method wraps the remote find_related_videos API request and returns a BCItemCollection containing the results
-- (BCItemCollection *) findRelatedVideos:(double) videoId referenceId:(NSString *) referenceId 
+- (BCItemCollection *) findRelatedVideos:(long long) videoId referenceId:(NSString *) referenceId 
 						pageSize:(int) pageSize pageNumber:(int) pageNumber getItemCount:(BOOL) getItemCount 
 						videoFields:(NSArray *)videoFields customFields:(NSArray *)customFields
 						error:(NSError **) error;
@@ -258,10 +240,10 @@
 						customFields:(NSArray *) customFields error:(NSError **) error;
 
 /// A convenience method which invokes findPlaylistById using the specified playlist id and default arguments for optional parameters
-- (BCPlaylist *) findPlaylistById:(double)playlistId error:(NSError **) error;
+- (BCPlaylist *) findPlaylistById:(long long)playlistId error:(NSError **) error;
 
 /// This method wraps the remote find_playlist_by_id API request and returns a BCItemCollection containing the results
-- (BCPlaylist *) findPlaylistById:(double)playlistId videoFields:(NSArray *)videoFields 
+- (BCPlaylist *) findPlaylistById:(long long)playlistId videoFields:(NSArray *)videoFields 
 						playlistFields:(NSArray *)playlistFields customFields:(NSArray *) customFields 
 						error:(NSError **) error;
 
@@ -290,10 +272,10 @@
 						error:(NSError **) error;
 
 /// A convenience method which invokes findPlaylistsForPlayerId using the specified player id and default arguments for optional parameters
-- (BCItemCollection *) findPlaylistsForPlayerId:(double) playerId error:(NSError **) error;
+- (BCItemCollection *) findPlaylistsForPlayerId:(long long) playerId error:(NSError **) error;
 
 /// This method wraps the remote find_playlist_for_player_id API request and returns a BCItemCollection containing the results
-- (BCItemCollection *) findPlaylistsForPlayerId:(double) playerId pageSize:(int) pageSize pageNumber:(int)pageNumber 
+- (BCItemCollection *) findPlaylistsForPlayerId:(long long) playerId pageSize:(int) pageSize pageNumber:(int)pageNumber 
 						getItemCount:(BOOL)getItemCount videoFields:(NSArray *)videoFields playlistFields:(NSArray *)playlistFields 
 						customFields:(NSArray *) customFields error:(NSError **) error;
 

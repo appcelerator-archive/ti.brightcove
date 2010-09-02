@@ -35,9 +35,9 @@
  */
 @interface BCPlaylist : NSObject 
 {
-	double playlistId;
+	long long playlistId;
 	NSString *referenceId;
-	double accountId;
+	long long accountId;
 	NSString *name;
 	NSString *shortDescription;
 	NSArray *videoIds;
@@ -46,9 +46,9 @@
 	NSString *thumbnailURL;
 }
 
-@property (nonatomic, assign) double playlistId;
+@property (nonatomic, assign) long long playlistId;
 @property (nonatomic, retain) NSString *referenceId;
-@property (nonatomic, assign) double accountId;
+@property (nonatomic, assign) long long accountId;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *shortDescription;
 @property (nonatomic, retain) NSArray *videoIds;

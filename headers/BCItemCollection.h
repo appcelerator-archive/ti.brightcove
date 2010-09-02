@@ -37,13 +37,13 @@
  */
 @interface BCItemCollection : NSObject 
 {
-	double totalCount;
+	long long totalCount;
 	NSArray *items;
 	int pageNumber;
 	int pageSize;
 }
 
-@property (nonatomic, assign) double totalCount;
+@property (nonatomic, assign) long long totalCount;
 @property (nonatomic, retain) NSArray *items;
 @property (nonatomic, assign) int pageNumber;
 @property (nonatomic, assign) int pageSize;

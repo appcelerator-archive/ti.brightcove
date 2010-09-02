@@ -43,10 +43,10 @@
 	int encodingRate;
 	int frameHeight;
 	int frameWidth;
-	double size;
+	long long size;
 	NSString *remoteUrl;
 	NSString *remoteStreamName;
-	double videoDuration;
+	long long videoDuration;
 	BCVideoCodec videoCodec;
 }
 
@@ -54,10 +54,10 @@
 @property (nonatomic, assign) int encodingRate;
 @property (nonatomic, assign) int frameHeight;
 @property (nonatomic, assign) int frameWidth;
-@property (nonatomic, assign) double size;
+@property (nonatomic, assign) long long size;
 @property (nonatomic, retain) NSString *remoteUrl;
 @property (nonatomic, retain) NSString *remoteStreamName;
-@property (nonatomic, assign) double videoDuration;
+@property (nonatomic, assign) long long videoDuration;
 @property (nonatomic, assign) BCVideoCodec videoCodec;
 
 /**

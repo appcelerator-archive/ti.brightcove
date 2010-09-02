@@ -23,18 +23,11 @@
 
 #import <Foundation/Foundation.h>
 
-#define BC_URL @"http://api.brightcove."
-#define BC_API_PATH @"/services/library?command="
 
-/**
- @brief The superclass of all BC object model types
- */
-@interface BCObject : NSObject
-{
+@interface BCObject : NSObject {
 }
 
-typedef enum
-{
+typedef enum {
 	BCSortByTypePublishDate = 0,
 	BCSortByTypeCreationDate,
 	BCSortByTypeModifiedDate,
@@ -42,67 +35,58 @@ typedef enum
 	BCSortByTypePlaysTrailingWeek
 } BCSortByType;
 
-typedef enum
-	{
-		BCSortOrderTypeASC = 0,
-		BCSortOrderTypeDESC = 1
-	} BCSortOrderType;
+typedef enum {
+    BCSortOrderTypeASC = 0,
+    BCSortOrderTypeDESC = 1
+} BCSortOrderType;
 
-typedef enum 
-	{
-		BCItemStateActive = 0,
-		BCItemStateInactive,
-		BCItemStateDeleted
-	} BCItemState;
+typedef enum {
+    BCItemStateActive = 0,
+    BCItemStateInactive,
+    BCItemStateDeleted
+} BCItemState;
 
-typedef enum
-	{
-		BCEconomicsFree = 0,
-		BCEconomicsAdSupported
-	} BCEconomics;
+typedef enum {
+    BCEconomicsFree = 0,
+    BCEconomicsAdSupported
+} BCEconomics;
 
-typedef enum
-	{
-		BCVideoCodecSORENSON = 0,
-		BCVideoCodecON2,
-		BCVideoCodecH264
-	} BCVideoCodec;
+typedef enum {
+    BCVideoCodecSORENSON = 0,
+    BCVideoCodecON2,
+    BCVideoCodecH264
+} BCVideoCodec;
 
-typedef enum
-	{
-		BCPlaylistTypeOldestToNewest = 0,
-		BCPlaylistTypeNewestToOldest,
-		BCPlaylistTypeAlphabetical,
-		BCPlaylistTypePlaysTotal,
-		BCPlaylistTypePlaysTrailingWeek,
-		BCPlaylistTypeExplicit,
-        BCPlaylistTypeStartDateOldestToNewest,
-        BCPlaylistTypeStartDateNewestToOldest
-	} BCPlaylistType;
+typedef enum {
+    BCPlaylistTypeOldestToNewest = 0,
+    BCPlaylistTypeNewestToOldest,
+    BCPlaylistTypeAlphabetical,
+    BCPlaylistTypePlaysTotal,
+    BCPlaylistTypePlaysTrailingWeek,
+    BCPlaylistTypeExplicit,
+    BCPlaylistTypeStartDateOldestToNewest,
+    BCPlaylistTypeStartDateNewestToOldest
+} BCPlaylistType;
 
-typedef enum
-	{
-		BCImageTypeThumbnail = 0,
-		BCImageTypeVideoStill
-	} BCImageType;
+typedef enum {
+    BCImageTypeThumbnail = 0,
+    BCImageTypeVideoStill
+} BCImageType;
 
-typedef enum
-	{
-		BCCuePointTypeAd = 0,
-		BCCuePointTypeCode = 1,
-		BCCUePointTypeChapter = 2
-	} BCCuePointType;
+typedef enum {
+    BCCuePointTypeAd = 0,
+    BCCuePointTypeCode = 1,
+    BCCUePointTypeChapter = 2
+} BCCuePointType;
 
-typedef enum
-    {
-        BCRegionUS = 0,
-        BCRegionJP
-    } BCRegion;
+typedef enum {
+    BCRegionUS = 0,
+    BCRegionJP
+} BCRegion;
 
-typedef enum
-    {
-        BCMediaDeliveryTypeDefault = 0,
-        BCMediaDeliveryTypeHTTP
-    } BCMediaDeliveryType;
+typedef enum {
+    BCMediaDeliveryTypeDefault = 0,
+    BCMediaDeliveryTypeHTTP
+} BCMediaDeliveryType;
 
 @end

@@ -35,7 +35,7 @@
 {
 	NSString *name;
 	NSString *videoId;
-	double time;
+	long long time;
 	BOOL forceStop;
 	BCCuePointType type;
 	NSString *metadata;
@@ -43,7 +43,7 @@
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *videoId;
-@property (nonatomic, assign) double time;
+@property (nonatomic, assign) long long time;
 @property (nonatomic, assign) BOOL forceStop;
 @property (nonatomic, assign) BCCuePointType type;
 @property (nonatomic, retain) NSString *metadata;

@@ -32,14 +32,14 @@
  */
 @interface BCImage : NSObject 
 {
-	double imageId;
+	long long imageId;
 	NSString *referenceId;
 	BCImageType type;
 	NSString *remoteUrl;
 	NSString *displayName;
 }
 
-@property (nonatomic, assign) double imageId;
+@property (nonatomic, assign) long long imageId;
 @property (nonatomic, retain) NSString *referenceId;
 @property (nonatomic, assign) BCImageType type;
 @property (nonatomic, retain) NSString *remoteUrl;

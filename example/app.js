@@ -14,5 +14,4 @@ window.open();
 var brightcove = require('ti.brightcove');
 Ti.API.info("module is => "+brightcove);
 
-
 brightcove.test();
