@@ -8,10 +8,40 @@
 var window = Ti.UI.createWindow({
   backgroundColor:'white'
 });
+
+Ti.Brightcove = require('ti.brightcove');
+Ti.Brightcove.readToken = "YmvFO5RekMdbqKGyT5CnLWzOR-J4Cq2IwpBV08B6vuwiBAUrRYQkmA..";
+
+var vButton = Ti.UI.createButton({
+	title:'Get videos',
+	width:200,
+	height:40,
+	top:20
+});
+vButton.addEventListener('click', function() {
+	var videoInfo = Ti.Brightcove.getVideos();
+	var vidWin = Ti.UI.createWindow({
+		url:'videos.js',
+		videos:videoInfo.videos,
+	});
+	vidWin.open();
+});
+window.add(vButton);
+
+var pButton = Ti.UI.createButton({
+	title:'Get playlists',
+	width:200,
+	height:40,
+	top:80
+});
+pButton.addEventListener('click', function() {
+	var playlistInfo = Ti.Brightcove.getPlaylists();
+	var listWin = Ti.UI.createWindow({
+		url:'playlists.js',
+		playlistInfo:playlistInfo,
+	});
+	listWin.open();
+});
+window.add(pButton);
+
 window.open();
-
-// TODO: write your module tests here
-var brightcove = require('ti.brightcove');
-Ti.API.info("module is => "+brightcove);
-
-brightcove.test();

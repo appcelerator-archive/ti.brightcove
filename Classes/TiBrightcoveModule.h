@@ -7,10 +7,14 @@
 
 #import "TiModule.h"
 #import "BCMediaAPI.h"
+
 @interface TiBrightcoveModule : TiModule 
 {
-    BCMediaAPI* 
+    BCMediaAPI* brightcove;
+    NSString* readToken;
 }
+
+@property(nonatomic, readwrite, retain) NSString* readToken;
 
 @property(nonatomic, readonly) NSNumber* SORT_BY_PUBLISH_DATE;
 @property(nonatomic, readonly) NSNumber* SORT_BY_CREATION_DATE;

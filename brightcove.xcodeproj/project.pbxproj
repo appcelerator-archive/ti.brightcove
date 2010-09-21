@@ -28,6 +28,14 @@
 		24DE9E1211C5FE74003F90F6 /* TiBrightcoveModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiBrightcoveModuleAssets.m */; };
 		AA747D9F0F9514B9006C5449 /* TiBrightcove_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiBrightcove_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DA94F61B1240257400F7B1AC /* TiBrightcovePlaylist.h in Headers */ = {isa = PBXBuildFile; fileRef = DA94F6191240257400F7B1AC /* TiBrightcovePlaylist.h */; };
+		DA94F61C1240257400F7B1AC /* TiBrightcovePlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = DA94F61A1240257400F7B1AC /* TiBrightcovePlaylist.m */; };
+		DAA6FE3512429EBD006D2F08 /* TiBrightcoveVideoPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA6FE3112429EBD006D2F08 /* TiBrightcoveVideoPlayer.h */; };
+		DAA6FE3612429EBD006D2F08 /* TiBrightcoveVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA6FE3212429EBD006D2F08 /* TiBrightcoveVideoPlayer.m */; };
+		DAA6FE3712429EBD006D2F08 /* TiBrightcoveVideoPlayerProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA6FE3312429EBD006D2F08 /* TiBrightcoveVideoPlayerProxy.h */; };
+		DAA6FE3812429EBD006D2F08 /* TiBrightcoveVideoPlayerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA6FE3412429EBD006D2F08 /* TiBrightcoveVideoPlayerProxy.m */; };
+		DAB1C8641231A8C900719218 /* TiBrightcoveVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB1C8621231A8C900719218 /* TiBrightcoveVideo.h */; };
+		DAB1C8651231A8C900719218 /* TiBrightcoveVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB1C8631231A8C900719218 /* TiBrightcoveVideo.m */; };
 		DACA22A3122F2F5000D83AA9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACA22A2122F2F5000D83AA9 /* CoreGraphics.framework */; };
 		DACA22A6122F2F5800D83AA9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACA22A5122F2F5800D83AA9 /* UIKit.framework */; };
 		DACA22A8122F2FC300D83AA9 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACA22A7122F2FC300D83AA9 /* MediaPlayer.framework */; };
@@ -112,6 +120,14 @@
 		AA747D9E0F9514B9006C5449 /* TiBrightcove_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiBrightcove_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libTiBrightcove.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiBrightcove.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA94F6191240257400F7B1AC /* TiBrightcovePlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiBrightcovePlaylist.h; path = Classes/TiBrightcovePlaylist.h; sourceTree = "<group>"; };
+		DA94F61A1240257400F7B1AC /* TiBrightcovePlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiBrightcovePlaylist.m; path = Classes/TiBrightcovePlaylist.m; sourceTree = "<group>"; };
+		DAA6FE3112429EBD006D2F08 /* TiBrightcoveVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiBrightcoveVideoPlayer.h; path = Classes/TiBrightcoveVideoPlayer.h; sourceTree = "<group>"; };
+		DAA6FE3212429EBD006D2F08 /* TiBrightcoveVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiBrightcoveVideoPlayer.m; path = Classes/TiBrightcoveVideoPlayer.m; sourceTree = "<group>"; };
+		DAA6FE3312429EBD006D2F08 /* TiBrightcoveVideoPlayerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiBrightcoveVideoPlayerProxy.h; path = Classes/TiBrightcoveVideoPlayerProxy.h; sourceTree = "<group>"; };
+		DAA6FE3412429EBD006D2F08 /* TiBrightcoveVideoPlayerProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiBrightcoveVideoPlayerProxy.m; path = Classes/TiBrightcoveVideoPlayerProxy.m; sourceTree = "<group>"; };
+		DAB1C8621231A8C900719218 /* TiBrightcoveVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiBrightcoveVideo.h; path = Classes/TiBrightcoveVideo.h; sourceTree = "<group>"; };
+		DAB1C8631231A8C900719218 /* TiBrightcoveVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiBrightcoveVideo.m; path = Classes/TiBrightcoveVideo.m; sourceTree = "<group>"; };
 		DACA22A2122F2F5000D83AA9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DACA22A5122F2F5800D83AA9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DACA22A7122F2FC300D83AA9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -240,10 +256,18 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DAA6FE3112429EBD006D2F08 /* TiBrightcoveVideoPlayer.h */,
+				DAA6FE3212429EBD006D2F08 /* TiBrightcoveVideoPlayer.m */,
+				DAA6FE3312429EBD006D2F08 /* TiBrightcoveVideoPlayerProxy.h */,
+				DAA6FE3412429EBD006D2F08 /* TiBrightcoveVideoPlayerProxy.m */,
 				24DE9E0F11C5FE74003F90F6 /* TiBrightcoveModuleAssets.h */,
 				24DE9E1011C5FE74003F90F6 /* TiBrightcoveModuleAssets.m */,
 				24DD6CF71134B3F500162E58 /* TiBrightcoveModule.h */,
 				24DD6CF81134B3F500162E58 /* TiBrightcoveModule.m */,
+				DAB1C8621231A8C900719218 /* TiBrightcoveVideo.h */,
+				DAB1C8631231A8C900719218 /* TiBrightcoveVideo.m */,
+				DA94F6191240257400F7B1AC /* TiBrightcovePlaylist.h */,
+				DA94F61A1240257400F7B1AC /* TiBrightcovePlaylist.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -398,6 +422,10 @@
 				DACA2318122F363500D83AA9 /* SBJsonWriter.h in Headers */,
 				DACA2319122F363500D83AA9 /* XAuthTwitterEngine.h in Headers */,
 				DACA231A122F363500D83AA9 /* XAuthTwitterEngineDelegate.h in Headers */,
+				DAB1C8641231A8C900719218 /* TiBrightcoveVideo.h in Headers */,
+				DA94F61B1240257400F7B1AC /* TiBrightcovePlaylist.h in Headers */,
+				DAA6FE3512429EBD006D2F08 /* TiBrightcoveVideoPlayer.h in Headers */,
+				DAA6FE3712429EBD006D2F08 /* TiBrightcoveVideoPlayerProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +498,10 @@
 			files = (
 				24DD6CFA1134B3F500162E58 /* TiBrightcoveModule.m in Sources */,
 				24DE9E1211C5FE74003F90F6 /* TiBrightcoveModuleAssets.m in Sources */,
+				DAB1C8651231A8C900719218 /* TiBrightcoveVideo.m in Sources */,
+				DA94F61C1240257400F7B1AC /* TiBrightcovePlaylist.m in Sources */,
+				DAA6FE3612429EBD006D2F08 /* TiBrightcoveVideoPlayer.m in Sources */,
+				DAA6FE3812429EBD006D2F08 /* TiBrightcoveVideoPlayerProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +536,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = TiBrightcove;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Debug;
 		};
@@ -523,6 +556,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = TiBrightcove;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Release;
 		};
@@ -563,6 +597,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				PRODUCT_NAME = "Build & test";
+				SDKROOT = iphoneos4.1;
 			};
 			name = Debug;
 		};
@@ -574,6 +609,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = "Build & test";
+				SDKROOT = iphoneos4.1;
 				ZERO_LINK = NO;
 			};
 			name = Release;
