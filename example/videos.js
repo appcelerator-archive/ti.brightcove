@@ -1,7 +1,7 @@
 
 // Have to reload Brightcove, because this is a new context...
 Ti.Brightcove = require('ti.brightcove');
-Ti.Brightcove.readToken = "YmvFO5RekMdbqKGyT5CnLWzOR-J4Cq2IwpBV08B6vuwiBAUrRYQkmA..";
+Ti.Brightcove.readToken = "<<<YOUR READ TOKEN HERE>>>";
 Ti.Brightcove.logging = true;
 
 var win = Ti.UI.currentWindow;

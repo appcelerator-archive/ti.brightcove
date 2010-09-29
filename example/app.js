@@ -10,7 +10,7 @@ var window = Ti.UI.createWindow({
 });
 
 Ti.Brightcove = require('ti.brightcove');
-Ti.Brightcove.readToken = "YmvFO5RekMdbqKGyT5CnLWzOR-J4Cq2IwpBV08B6vuwiBAUrRYQkmA..";
+Ti.Brightcove.readToken = "<<<YOUR READ TOKEN HERE>>>";
 
 var vButton = Ti.UI.createButton({
 	title:'Get videos',
