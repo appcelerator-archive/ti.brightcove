@@ -26,35 +26,35 @@ Creates and returns a [ti.brightcove.VideoPlayer][] object.
 Gets videos from the Brightcove service.  Takes an optional dictionary argument,
 with the following (all optional) properties:
 
-pageSize[int]: The number of videos to include on a returned page
-pageNumber[int]: The page number to return
-sortType[int]: The type of sorting to perform
-sortOrder[int]: The order to sort in
-videoFields[array]: An array of fields which should match the returned videos
-customFields[array]: An array of custom field {name:value} pairs which should match the returned videos.
+pageSize[int]: The number of videos to include on a returned page  
+pageNumber[int]: The page number to return  
+sortType[int]: The type of sorting to perform  
+sortOrder[int]: The order to sort in  
+videoFields[array]: An array of fields which should match the returned videos  
+customFields[array]: An array of custom field {name:value} pairs which should match the returned videos.  
 
 Returns the following dictionary:
 
-totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)
-videos[array]: The [ti.brightcove.Video][] objects returned by the query
-pageNumber[int]: The page number returned by the operation
-pageSize[int]: The number of videos in the page
+totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)  
+videos[array]: The [ti.brightcove.Video][] objects returned by the query  
+pageNumber[int]: The page number returned by the operation  
+pageSize[int]: The number of videos in the page  
 
 ### ti.brightcove.getVideosByIds({...})
 
 Gets videos with the specified IDs from the Brightcove service.  Takes a dictionary argument,
 with the following properties:
 
-ids[array]: The video IDs to retrieve
-videoFields[array] (optional): An array of fields which should match the returned videos
-customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.
+ids[array]: The video IDs to retrieve  
+videoFields[array] (optional): An array of fields which should match the returned videos  
+customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.  
 
 Returns the following dictionary:
 
-totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)
-videos[array]: The [ti.brightcove.Video][] objects returned by the query
-pageNumber[int]: The page number returned by the operation (NOTE: This value may not be defined for this operation)
-pageSize[int]: The number of videos in the page (NOTE: This value may not be defined for this operation)
+totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)  
+videos[array]: The [ti.brightcove.Video][] objects returned by the query  
+pageNumber[int]: The page number returned by the operation (NOTE: This value may not be defined for this operation)  
+pageSize[int]: The number of videos in the page (NOTE: This value may not be defined for this operation)  
 
 ### ti.brightcove.getRelatedVideos({...})
 
@@ -62,185 +62,185 @@ Gets videos related to a single video from the Brightcove service, which is done
 combining description information from the provided video and matching it against other
 videos' description, tags, and name.  Takes a dictionary argument, with the following properties:
 
-id[int]: The ID of the video to find related media for
-referenceId[string] (optional): The reference ID of the video to find media for
-pageSize[int] (optional): The number of videos to include on a returned page
-pageNumber[int] (optional): The page number to return
-videoFields[array] (optional): An array of fields which should match the returned videos
-customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.
+id[int]: The ID of the video to find related media for  
+referenceId[string] (optional): The reference ID of the video to find media for  
+pageSize[int] (optional): The number of videos to include on a returned page  
+pageNumber[int] (optional): The page number to return  
+videoFields[array] (optional): An array of fields which should match the returned videos  
+customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.  
 
 Returns the following dictionary:
 
-totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)
-videos[array]: The [ti.brightcove.Video][] objects returned by the query
-pageNumber[int]: The page number returned by the operation
-pageSize[int]: The number of videos in the page
+totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)  
+videos[array]: The [ti.brightcove.Video][] objects returned by the query  
+pageNumber[int]: The page number returned by the operation  
+pageSize[int]: The number of videos in the page  
 
 ### ti.brightcove.getVideosByReferenceIds({...})
 
 Gets videos with the specified reference IDs from the Brightcove service.  Takes a dictionary argument,
 with the following properties:
 
-referenceIds[array]: The reference IDs to retrieve
-videoFields[array] (optional): An array of fields which should match the returned videos
-customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.
+referenceIds[array]: The reference IDs to retrieve  
+videoFields[array] (optional): An array of fields which should match the returned videos  
+customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.  
 
 Returns the following dictionary:
 
-totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)
-videos[array]: The [ti.brightcove.Video][] objects returned by the query
-pageNumber[int]: The page number returned by the operation (NOTE: This value may not be defined for this operation)
-pageSize[int]: The number of videos in the page (NOTE: This value may not be defined for this operation)
+totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)  
+videos[array]: The [ti.brightcove.Video][] objects returned by the query  
+pageNumber[int]: The page number returned by the operation (NOTE: This value may not be defined for this operation)  
+pageSize[int]: The number of videos in the page (NOTE: This value may not be defined for this operation)  
 
 ### ti.brightcove.getVideosByUserId({...})
 
 Gets videos for the specified user ID from the Brightcove service.  Takes a dictionary argument
 with the following properties:
 
-userId[string]: The user ID to retrieve videos for
-pageSize[int] (optional): The number of videos to include on a returned page
-pageNumber[int] (optional): The page number to return
-sortType[int] (optional): The type of sorting to perform
-sortOrder[int] (optional): The order to sort in
-videoFields[array] (optional): An array of fields which should match the returned videos
-customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.
+userId[string]: The user ID to retrieve videos for  
+pageSize[int] (optional): The number of videos to include on a returned page  
+pageNumber[int] (optional): The page number to return  
+sortType[int] (optional): The type of sorting to perform  
+sortOrder[int] (optional): The order to sort in  
+videoFields[array] (optional): An array of fields which should match the returned videos  
+customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.  
 
 Returns the following dictionary:
 
-totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)
-videos[array]: The [ti.brightcove.Video][] objects returned by the query
-pageNumber[int]: The page number returned by the operation
-pageSize[int]: The number of videos in the page
+totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)  
+videos[array]: The [ti.brightcove.Video][] objects returned by the query  
+pageNumber[int]: The page number returned by the operation  
+pageSize[int]: The number of videos in the page  
 
 ### ti.brightcove.getModifiedVideos({...})
 
 Gets videos from the Brightcove service that were modified after the specified time.  Takes a dictionary argument,
 with the following properties:
 
-date[object]: The date videos were modified after
-pageSize[int] (optional): The number of videos to include on a returned page
-pageNumber[int] (optional): The page number to return
-sortType[int] (optional): The type of sorting to perform
-sortOrder[int] (optional): The order to sort in
-videoFields[array] (optional): An array of fields which should match the returned videos
-customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.
+date[object]: The date videos were modified after  
+pageSize[int] (optional): The number of videos to include on a returned page  
+pageNumber[int] (optional): The page number to return  
+sortType[int] (optional): The type of sorting to perform  
+sortOrder[int] (optional): The order to sort in  
+videoFields[array] (optional): An array of fields which should match the returned videos  
+customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.  
 
 Returns the following dictionary:
 
-totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)
-videos[array]: The [ti.brightcove.Video][] objects returned by the query
-pageNumber[int]: The page number returned by the operation
-pageSize[int]: The number of videos in the page
+totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)  
+videos[array]: The [ti.brightcove.Video][] objects returned by the query  
+pageNumber[int]: The page number returned by the operation  
+pageSize[int]: The number of videos in the page  
 
 ### ti.brightcove.getVideosByText({...})
 
 Gets videos from the Brightcove service whose name or description contains the provided text.  
 Takes a dictionary argument, with the following properties:
 
-text[string]: The text to match
-videoFields[array] (optional): An array of fields which should match the returned videos
-customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.
+text[string]: The text to match  
+videoFields[array] (optional): An array of fields which should match the returned videos  
+customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.  
 
 Returns the following dictionary:
 
-totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)
-videos[array]: The [ti.brightcove.Video][] objects returned by the query
-pageNumber[int]: The page number returned by the operation (NOTE: This value may not be defined for this operation)
-pageSize[int]: The number of videos in the page (NOTE: This value may not be defined for this operation)
+totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)  
+videos[array]: The [ti.brightcove.Video][] objects returned by the query  
+pageNumber[int]: The page number returned by the operation (NOTE: This value may not be defined for this operation)  
+pageSize[int]: The number of videos in the page (NOTE: This value may not be defined for this operation)  
 
 ### ti.brightcove.getVideosByTags({...})
 
 Gets videos from the Brightcove service with the matching tags.  Takes a dictionary argument,
 with the following properties:
 
-andTags[array]: An array of tags.  Matched videos MUST contain ALL of these tags.
-orTags[array]: An array of tags.  Matched videos MAY contain ONE OR MORE of these tags.
-pageSize[int] (optional): The number of videos to include on a returned page
-pageNumber[int] (optional): The page number to return
-sortType[int] (optional): The type of sorting to perform
-sortOrder[int] (optional): The order to sort in
-videoFields[array] (optional): An array of fields which should match the returned videos
-customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.
+andTags[array]: An array of tags.  Matched videos MUST contain ALL of these tags.  
+orTags[array]: An array of tags.  Matched videos MAY contain ONE OR MORE of these tags.  
+pageSize[int] (optional): The number of videos to include on a returned page  
+pageNumber[int] (optional): The page number to return  
+sortType[int] (optional): The type of sorting to perform  
+sortOrder[int] (optional): The order to sort in  
+videoFields[array] (optional): An array of fields which should match the returned videos  
+customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.  
 
 Returns the following dictionary:
 
-totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)
-videos[array]: The [ti.brightcove.Video][] objects returned by the query
-pageNumber[int]: The page number returned by the operation
-pageSize[int]: The number of videos in the page
+totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)  
+videos[array]: The [ti.brightcove.Video][] objects returned by the query  
+pageNumber[int]: The page number returned by the operation  
+pageSize[int]: The number of videos in the page  
 
 ### ti.brightcove.getPlaylists([{...}])
 
 Gets playlists from the Brightcove service.  Takes an optional dictionary argument,
 with the following (all optional) properties:
 
-pageSize[int]: The number of videos to include on a returned page
-pageNumber[int]: The page number to return
-sortType[int]: The type of sorting to perform
-sortOrder[int]: The order to sort in
-videoFields[array]: An array of fields which should match the returned videos
-playlistFields[array]: An array of fields which should match the returned playlists
-customFields[array]: An array of custom field {name:value} pairs which should match the returned playlists.
+pageSize[int]: The number of videos to include on a returned page  
+pageNumber[int]: The page number to return  
+sortType[int]: The type of sorting to perform  
+sortOrder[int]: The order to sort in  
+videoFields[array]: An array of fields which should match the returned videos  
+playlistFields[array]: An array of fields which should match the returned playlists  
+customFields[array]: An array of custom field {name:value} pairs which should match the returned playlists.  
 
 Returns the following dictionary:
 
-totalCount[int]: The total number of playlists returned (NOTE: This value may be incorrect)
-playlists[array]: The [ti.brightcove.Playlist][] objects returned by the query
-pageNumber[int]: The page number returned by the operation
-pageSize[int]: The number of playlists in the page
+totalCount[int]: The total number of playlists returned (NOTE: This value may be incorrect)  
+playlists[array]: The [ti.brightcove.Playlist][] objects returned by the query  
+pageNumber[int]: The page number returned by the operation  
+pageSize[int]: The number of playlists in the page  
 
 ### ti.brightcove.getPlaylistsByIds({...})
 
 Gets playlists with the specified IDs from the Brightcove service.  Takes a dictionary argument,
 with the following properties:
 
-ids[array]: The playlist IDs to retrieve.
-videoFields[array] (optional): An array of fields which should match the returned videos
-playlistFields[array] (optional): An array of fields which should match the returned playlists
-customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned playlists.
+ids[array]: The playlist IDs to retrieve.  
+videoFields[array] (optional): An array of fields which should match the returned videos  
+playlistFields[array] (optional): An array of fields which should match the returned playlists  
+customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned playlists.  
 
 Returns the following dictionary:
 
-totalCount[int]: The total number of playlists returned (NOTE: This value may be incorrect)
-playlists[array]: The [ti.brightcove.Playlist][] objects returned by the query
-pageNumber[int]: The page number returned by the operation (NOTE: This value may not be defined for this operation)
-pageSize[int]: The number of playlists in the page (NOTE: This value may not be defined for this operation)
+totalCount[int]: The total number of playlists returned (NOTE: This value may be incorrect)  
+playlists[array]: The [ti.brightcove.Playlist][] objects returned by the query  
+pageNumber[int]: The page number returned by the operation (NOTE: This value may not be defined for this operation)  
+pageSize[int]: The number of playlists in the page (NOTE: This value may not be defined for this operation)  
 
 ### ti.brightcove.getPlaylistsByReferenceIds({...})
 
 Gets playlists with the specified reference IDs from the Brightcove service.  Takes a dictionary argument,
 with the following properties:
 
-referenceIds[array]: The reference IDs to retrieve
-videoFields[array] (optional): An array of fields which should match the returned videos
-playlistFields[array] (optional): An array of fields which should match the returned playlists
-customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned playlists.
+referenceIds[array]: The reference IDs to retrieve  
+videoFields[array] (optional): An array of fields which should match the returned videos  
+playlistFields[array] (optional): An array of fields which should match the returned playlists  
+customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned playlists.  
 
 Returns the following dictionary:
 
-totalCount[int]: The total number of playlists returned (NOTE: This value may be incorrect)
-playlists[array]: The [ti.brightcove.Playlist][] objects returned by the query
-pageNumber[int]: The page number returned by the operation (NOTE: This value may not be defined for this operation)
-pageSize[int]: The number of playlists in the page (NOTE: This value may not be defined for this operation)
+totalCount[int]: The total number of playlists returned (NOTE: This value may be incorrect)  
+playlists[array]: The [ti.brightcove.Playlist][] objects returned by the query  
+pageNumber[int]: The page number returned by the operation (NOTE: This value may not be defined for this operation)  
+pageSize[int]: The number of playlists in the page (NOTE: This value may not be defined for this operation)  
 
 ### ti.brightcove.getPlaylistsByPlayerId({...})
 
 Gets playlists for the given player ID from the Brightcove service.  Takes a dictionary argument,
 with the following properties:
 
-playerId[int]: The player ID
-pageSize[int] (optional): The number of playlists to include on a returned page
-pageNumber[int] (optional): The page number to return
-videoFields[array] (optional): An array of fields which should match the returned videos
-playlistFields[array] (optional): An array of fields which should match the returned playlists
-customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned playlists.
+playerId[int]: The player ID  
+pageSize[int] (optional): The number of playlists to include on a returned page  
+pageNumber[int] (optional): The page number to return  
+videoFields[array] (optional): An array of fields which should match the returned videos  
+playlistFields[array] (optional): An array of fields which should match the returned playlists  
+customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned playlists.  
 
 Returns the following dictionary:
 
-totalCount[int]: The total number of playlists returned (NOTE: This value may be incorrect)
-playlists[array]: The [ti.brightcove.Playlist][] objects returned by the query
-pageNumber[int]: The page number returned by the operation
-pageSize[int]: The number of playlists in the page
+totalCount[int]: The total number of playlists returned (NOTE: This value may be incorrect)  
+playlists[array]: The [ti.brightcove.Playlist][] objects returned by the query  
+pageNumber[int]: The page number returned by the operation  
+pageSize[int]: The number of playlists in the page  
 
 ## Properties
 
