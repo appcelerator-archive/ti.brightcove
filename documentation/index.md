@@ -362,7 +362,7 @@ Stephen Tramer <stramer@appcelerator.com>, Appcelerator Inc.
 
 ## License
 
-TODO: Enter your license/legal information here.
+Copyright(c) 2010-2011 by Appcelerator, Inc. All Rights Reserved. Please see the LICENSE file included in the distribution for further details.
 
 [ti.brightcove.Video]: video.html
 [ti.brightcove.Playlist]: playlist.html
