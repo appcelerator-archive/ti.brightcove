@@ -1,27 +1,26 @@
-# ti.brightcove.VideoPlayer
+# Ti.Brightcove.VideoPlayer
 
 ## Description
 
 A _brightcove_ module object which represents a video player.  All properties and
-functions which apply to _Titanium.Media.VideoPlayer_ also apply to the Brightcove
+functions which apply to _[Titanium.Media.VideoPlayer][]_ also apply to the Brightcove
 media player.  However, the _url_ and _contentURL_ properties now take a
-[ti.brightcove.Video][] object.
-
-## Reference
+[Ti.Brightcove.Video][] object.
 
 ## Properties
 
-### ti.brightcove.VideoPlayer.video[object]
+### Ti.Brightcove.VideoPlayer.video[object]
 
-The [ti.brightcove.Video][] object to play.  Synonym for _url_ and _contentURL_ with
+The [Ti.Brightcove.Video][] object to play.  Synonym for _url_ and _contentURL_ with
 Brightcove players.
 
-### ti.brightcove.VideoPlayer.lowBitRate[double]
+### Ti.Brightcove.VideoPlayer.lowBitRate[double]
 
 The low-end bit rate for the video to display.  Value is in bps.
 
-### ti.brightcove.VideoPlayer.highBitRate[double]
+### Ti.Brightcove.VideoPlayer.highBitRate[double]
 
 The high-end bit rate for the video to display.  Value is in bps.
 
-[ti.brightcove.Video]: video.html
+[Ti.Brightcove.Video]: video.html
+[Titanium.Media.VideoPlayer]: http://developer.appcelerator.com/apidoc/mobile/latest/Titanium.Media.VideoPlayer-object.html
