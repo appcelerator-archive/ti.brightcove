@@ -353,7 +353,11 @@ See example.
 
 ## Author
 
-Stephen Tramer <stramer@appcelerator.com>, Appcelerator Inc.
+Stephen Tramer
+
+## Feedback and Support
+
+Please direct all questions, feedback, and concerns to [info@appcelerator.com](mailto:info@appcelerator.com?subject=iOS%20Brightcove%20Module).
 
 ## License
 
