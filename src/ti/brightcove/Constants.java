@@ -5,14 +5,9 @@
  */
 package ti.brightcove;
 
-import org.appcelerator.kroll.KrollInvocation;
 import org.appcelerator.titanium.util.TiConfig;
 
-import android.app.Activity;
-import android.content.SharedPreferences;
-
-public class Constants
-{
+public class Constants {
 	public static final String LCAT = "BrightcoveModule";
 	public static final boolean DBG = TiConfig.LOGD;
 }
