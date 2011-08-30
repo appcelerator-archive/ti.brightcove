@@ -10,6 +10,6 @@
 
 @interface NSString (UUID)
 
-+ (NSString*)stringWithNewUUID;
++ (NSString*)mgStringWithNewUUID;
 
 @end

@@ -48,6 +48,8 @@
 	NSString *remoteStreamName;
 	long long videoDuration;
 	BCVideoCodec videoCodec;
+    BOOL audioOnly;
+    BCVideoContainer videoContainer;
 }
 
 @property (nonatomic, retain) NSString *url;
@@ -59,6 +61,8 @@
 @property (nonatomic, retain) NSString *remoteStreamName;
 @property (nonatomic, assign) long long videoDuration;
 @property (nonatomic, assign) BCVideoCodec videoCodec;
+@property (nonatomic, assign) BOOL audioOnly;
+@property (nonatomic, assign) BCVideoContainer videoContainer;
 
 /**
  @brief Compare BCRenditions

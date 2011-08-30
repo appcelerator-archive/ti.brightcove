@@ -190,17 +190,6 @@
 						sortBy:(BCSortByType)sortByType sortOrder:(BCSortOrderType)sortOrderType getItemCount:(BOOL)getItemCount 
 						videoFields:(NSArray *)videoFields customFields:(NSArray *)customFields error:(NSError **) error;
 
-/*
- 
- // Methods hidden per Ashley -- deprecated API
- 
-- (BCItemCollection *) findVideosByCampaignId:(double) campaignId error:(NSError **) error;
-
-- (BCItemCollection *) findVideosByCampaignId:(double) campaignId pageSize:(int)pageSize pageNumber:(int)pageNumber
-						sortBy:(BCSortByType)sortByType sortOrder:(BCSortOrderType)sortOrderType getItemCount:(BOOL)getItemCount 
-						videoFields:(NSArray *)videoFields customFields:(NSArray *)customFields error:(NSError **) error;
-*/
-
 /// A convenience method which invokes findModifiedVideos using the specified NSDate as a start date and default arguments for optional parameters
 - (BCItemCollection *) findModifiedVideos:(NSDate *) fromDate error:(NSError **) error;
 

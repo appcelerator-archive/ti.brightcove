@@ -86,7 +86,15 @@ typedef enum {
 
 typedef enum {
     BCMediaDeliveryTypeDefault = 0,
-    BCMediaDeliveryTypeHTTP
+    BCMediaDeliveryTypeHTTP,
+    BCMediaDeliveryTypeHTTP_IOS
 } BCMediaDeliveryType;
+
+typedef enum {
+    BCVideoContainerFLV = 0,
+    BCVideoContainerMP4,
+    BCVideoContainerM2TS,
+    BCVideoContainerWEBM
+} BCVideoContainer;
 
 @end

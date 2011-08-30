@@ -1,24 +1,18 @@
 //
-// Permission is hereby granted, free of charge, to any person
-// obtaining a copy of this software and associated documentation
-// files (the "Software"), to deal in the Software without
-// restriction, including without limitation the rights to use,
-// copy, modify, merge, publish, distribute, sublicense, and/or
-// sell copies of the Software, and to permit persons to whom the
-// Software is furnished to do so, subject to the following
-// conditions:
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
+// and associated documentation files (the "Software"), to deal in the Software without restriction, 
+// including without limitation the rights to use, copy, modify, merge, publish, distribute, 
+// sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is 
+// furnished to do so, subject to the following conditions:
 // 
-// 1.  The permission granted herein does not extend to commercial use of
-// the Software by entities primarily engaged in providing online video
-// and related services; and
+// 1.  The permission granted herein does not extend to commercial use of the Software by entities 
+// primarily engaged in providing online video and related services; and
 // 
-// 2.  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-// IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-// TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// 2.  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING 
+// BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
 /**
@@ -103,11 +97,20 @@
     BOOL shouldLog;
     BOOL isThreeDotTwoOrGreater;
     BOOL initialized;
+    BOOL sortHTTPStreamingPlaylistForWIFI;
 }
 
-- (id)initWithContentURL:(BCVideo *) video searchForRenditionWithLowBitRate:(NSNumber *) lowBitRate andHighBitRate:(NSNumber *) highBitRate;
-- (void)setContentURL:(BCVideo *) video;
-- (void)searchForRenditionsBetweenLowBitRate:(NSNumber *) lowBitRate andHighBitRate:(NSNumber *) highBitRate;
+- (id)initWithContentURL:(BCVideo *)video searchForRenditionWithLowBitRate:(NSNumber *)lowBitRate andHighBitRate:(NSNumber *)highBitRate;
+- (void)setContentURL:(BCVideo *)video;
+- (void)searchForRenditionsBetweenLowBitRate:(NSNumber *)lowBitRate andHighBitRate:(NSNumber *)highBitRate;
+
+/**
+ When the call for the HTTP Streaming Playlist a.k.a. Variant Playlist goes out the url param
+ "connection=wifi" is appended. This sorts the renditions so the playback experience is better from 
+ the begining on a WIFI connection. Only works with the BCMediaDeliveryTypeHTTP_IOS media delivery
+ type, does nothing with other delivery types.
+ */
+@property(nonatomic, assign) BOOL sortHTTPStreamingPlaylistForWIFI;
 
 #pragma mark -
 #pragma mark Apple MPMediaPlayback Protocal
