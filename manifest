@@ -4,7 +4,7 @@
 #
 version: 1.0
 description: Module for interactions with the Brightcove media service
-author: Stephen Tramer
+author: Dawson Toth
 license: Appcelerator Commercial License
 copyright: Copyright (c) 2010-2011 by Appcelerator, Inc.
 

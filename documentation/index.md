@@ -355,11 +355,11 @@ See example.
 
 ## Author
 
-Stephen Tramer
+Dawson Toth
 
 ## Feedback and Support
 
-Please direct all questions, feedback, and concerns to [info@appcelerator.com](mailto:info@appcelerator.com?subject=iOS%20Brightcove%20Module).
+Please direct all questions, feedback, and concerns to [info@appcelerator.com](mailto:info@appcelerator.com?subject=Android%20Brightcove%20Module).
 
 ## License
 
