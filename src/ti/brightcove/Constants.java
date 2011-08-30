@@ -1,0 +1,18 @@
+/**
+ * Ti.Brightcove Module
+ * Copyright (c) 2010-2011 by Appcelerator, Inc. All Rights Reserved.
+ * Please see the LICENSE included with this distribution for details.
+ */
+package ti.brightcove;
+
+import org.appcelerator.kroll.KrollInvocation;
+import org.appcelerator.titanium.util.TiConfig;
+
+import android.app.Activity;
+import android.content.SharedPreferences;
+
+public class Constants
+{
+	public static final String LCAT = "BrightcoveModule";
+	public static final boolean DBG = TiConfig.LOGD;
+}
