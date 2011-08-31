@@ -1,3 +1,8 @@
+/**
+ * Ti.Brightcove Module
+ * Copyright (c) 2010-2011 by Appcelerator, Inc. All Rights Reserved.
+ * Please see the LICENSE included with this distribution for details.
+ */
 package ti.brightcove;
 
 import java.util.Date;
@@ -7,74 +12,62 @@ import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.TiContext;
 
+import com.brightcove.mobile.mediaapi.model.CustomField;
+import com.brightcove.mobile.mediaapi.model.Video;
+
 @Kroll.proxy
 public class VideoProxy extends KrollProxy {
 
-	public VideoProxy(TiContext context) {
+	private Video _video;
+	
+	public VideoProxy(TiContext context, Video video) {
 		super(context);
+		_video = video;
 	}
 	
 	@Kroll.getProperty
 	public String getName() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		return _video.getName();
 	}
 	
 	@Kroll.getProperty
 	public String getShortDescription() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		return _video.getShortDescription();
 	}
 	
 	@Kroll.getProperty
 	public String getLongDescription() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		return _video.getLongDescription();
 	}
 	
 	@Kroll.getProperty
 	public String getVideoStillURL() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		return _video.getVideoStillUrl();
 	}
 	
 	@Kroll.getProperty
 	public String getThumbnailURL() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		return _video.getThumbnailUrl();
 	}
 	
 	@Kroll.getProperty
 	public Date getCreationDate() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		return _video.getCreationDate();
 	}
 	
 	@Kroll.getProperty
 	public Date getPublishedDate() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		return _video.getPublishedDate();
 	}
 	
 	@Kroll.getProperty
 	public Date getLastModifiedDate() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		return _video.getLastModifiedDate();
 	}
 
 	@Kroll.getProperty
-	public String[] getTags() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+	public Object[] getTags() {
+		return _video.getTags().toArray();
 	}
 
 	@Kroll.getProperty
@@ -83,20 +76,16 @@ public class VideoProxy extends KrollProxy {
 	}
 	@Kroll.getProperty
 	public int getVideoId() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return 0;
+		return Util.degrade(_video.getId());
 	}
 
 	@Kroll.getProperty
-	public int getReferenceID() {
+	public String getReferenceID() {
 		return getReferenceId();
 	}
 	@Kroll.getProperty
-	public int getReferenceId() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return 0;
+	public String getReferenceId() {
+		return _video.getReferenceId();
 	}
 
 	@Kroll.getProperty
@@ -105,44 +94,36 @@ public class VideoProxy extends KrollProxy {
 	}
 	@Kroll.getProperty
 	public int getAccountId() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return 0;
+		return Util.degrade(_video.getAccountId());
 	}
 
 	@Kroll.getProperty
 	public int getLength() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return 0;
+		return Util.degrade(_video.getLength());
 	}
 
 	@Kroll.getProperty
 	public int getPlaysTotal() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return 0;
+		return _video.getPlaysTotal();
 	}
 
 	@Kroll.getProperty
 	public int getPlaysTrailingWeek() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return 0;
+		return _video.getPlaysTrailingWeek();
 	}
 	
 	@Kroll.getProperty
 	public int getItemState() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return 0;
+		return _video.getItemState().ordinal();
 	}
 
 	@Kroll.getProperty
 	public KrollDict getCustomFields() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		KrollDict retVal = new KrollDict();
+		for (CustomField field : _video.getCustomFields()) {
+			retVal.put(field.getName(), field.getValue());
+		}
+		return retVal;
 	}
 	
 }

@@ -5,22 +5,36 @@
  */
 package ti.brightcove;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.logging.Logger;
+
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
-
 import org.appcelerator.titanium.TiContext;
 
+import com.brightcove.mobile.mediaapi.ReadAPI;
+import com.brightcove.mobile.mediaapi.model.ItemCollection;
+import com.brightcove.mobile.mediaapi.model.Playlist;
+import com.brightcove.mobile.mediaapi.model.Video;
 import com.brightcove.mobile.mediaapi.model.enums.MediaDeliveryTypeEnum;
+import com.brightcove.mobile.mediaapi.model.enums.PlaylistFieldEnum;
 import com.brightcove.mobile.mediaapi.model.enums.PlaylistTypeEnum;
 import com.brightcove.mobile.mediaapi.model.enums.RegionEnum;
 import com.brightcove.mobile.mediaapi.model.enums.SortByTypeEnum;
 import com.brightcove.mobile.mediaapi.model.enums.SortOrderTypeEnum;
 import com.brightcove.mobile.mediaapi.model.enums.VideoStateFilterEnum;
+import com.brightcove.mobile.mediaapi.model.enums.VideoFieldEnum;
 
 @Kroll.module(name="Brightcove", id="ti.brightcove")
 public class BrightcoveModule extends KrollModule
 {
+	
 	public BrightcoveModule(TiContext tiContext) {
 		super(tiContext);
 	}
@@ -30,26 +44,28 @@ public class BrightcoveModule extends KrollModule
 	//
 	@Kroll.setProperty
 	public void setReadToken(String val) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
+		Constants.setReadToken(val);
 	}
-	
+
 	@Kroll.setProperty
 	public void setDeliveryType(int val) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
+		Constants.getAPI().setMediaDeliveryType(
+				MediaDeliveryTypeEnum.values()[val]);
 	}
-	
+
 	@Kroll.setProperty
 	public void setRegion(int val) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
+		Constants.getAPI().setRegion(RegionEnum.values()[val]);
 	}
-	
+
 	@Kroll.setProperty
 	public void setLogging(boolean val) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
+		if (val) {
+			Logger APILogger = Logger.getLogger("BCAndroidAPILogger");
+			Constants.getAPI().setLogger(APILogger);
+		} else {
+			Constants.getAPI().setLogger(null);
+		}
 	}
 	
 	//
@@ -79,102 +95,386 @@ public class BrightcoveModule extends KrollModule
 	@Kroll.constant public static final int DELIVERY_HTTP = MediaDeliveryTypeEnum.HTTP.ordinal();
 
 	//
+	// Internal Utility Methods / Classes
+	//
+	private void populateResponseFromVideoCollection(KrollDict response,
+			ItemCollection<Video> items) {
+		response.put("pageNumber", items.getPageNumber());
+		response.put("pageSize", items.getPageSize());
+		response.put("totalCount", items.getTotalCount());
+		ArrayList<VideoProxy> proxied = new ArrayList<VideoProxy>();
+		for (Video item : items.getItems()) {
+			proxied.add(new VideoProxy(context, item));
+		}
+		response.put("videos", proxied.toArray());
+	}
+	
+	private void populateResponseFromPlaylistCollection(KrollDict response,
+			ItemCollection<Playlist> items) {
+		response.put("pageNumber", items.getPageNumber());
+		response.put("pageSize", items.getPageSize());
+		response.put("totalCount", items.getTotalCount());
+		ArrayList<PlaylistProxy> proxied = new ArrayList<PlaylistProxy>();
+		for (Playlist item : items.getItems()) {
+			proxied.add(new PlaylistProxy(context, item));
+		}
+		response.put("playlists", proxied.toArray());
+	}
+
+	private class FieldsResult {
+		public EnumSet<VideoFieldEnum> videoFields;
+		public HashSet<String> customFields;
+		public EnumSet<PlaylistFieldEnum> playlistFields;
+
+		public FieldsResult(KrollDict args) {
+			String[] rawVideoFields = args.getStringArray("videoFields");
+			if (rawVideoFields != null) {
+				videoFields = VideoFieldEnum.createEmptyEnumSet();
+				for (String rawField : rawVideoFields) {
+					videoFields.add(VideoFieldEnum.values()[Integer
+							.parseInt(rawField)]);
+				}
+			}
+			KrollDict rawCustomFields = args.getKrollDict("customFields");
+			if (rawCustomFields != null) {
+				customFields = new HashSet<String>();
+				for (String key : rawCustomFields.keySet()) {
+					customFields.add(rawCustomFields.getString(key));
+				}
+			}
+			String[] rawPlaylistFields = args.getStringArray("playlistFields");
+			if (rawPlaylistFields != null) {
+				playlistFields = PlaylistFieldEnum.createEmptyEnumSet();
+				for (String rawField : rawPlaylistFields) {
+					playlistFields.add(PlaylistFieldEnum.values()[Integer
+							.parseInt(rawField)]);
+				}
+			}
+		}
+	}
+	
+	private int optInt(KrollDict args, String key, int def) {
+		if (args.containsKey(key))
+			return args.getInt(key);
+		return def;
+	}
+	
+	//
 	// Methods
 	//
 	@Kroll.method
-	public Object[] getVideos(KrollDict args) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+	public KrollDict getVideos(KrollDict args) {
+		ReadAPI readAPI = Constants.getAPI();
+		KrollDict response = new KrollDict();
+		try {
+			String pUserId = args.getString("userId");
+			if (pUserId == null)
+				pUserId = args.getString("userID");
+			Integer pPageSize = optInt(args, "pageSize", 100);
+			Integer pPageNumber = optInt(args, "pageNumber", 0);
+			Boolean pGetItemCount = true;
+			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args.getInt("sortType")];
+			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args.getInt("sortOrder")];
+			FieldsResult fields = new FieldsResult(args);
+			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
+			Set<String> pCustomFields = fields.customFields;
+			
+			populateResponseFromVideoCollection(response,
+					readAPI.findAllVideos(pPageSize, pPageNumber, pGetItemCount, pSortBy, pSortOrderType, pVideoFields, pCustomFields));
+		} catch (Exception e) {
+			Util.e("Failed to getVideos", e);
+			response.put("error", e.toString());
+		}
+		return response;
 	}
 
 	@Kroll.method
-	public Object[] getVideosByIDs(KrollDict args) {
+	public KrollDict getVideosByIDs(KrollDict args) {
 		return getVideosByIds(args);
 	}
 	@Kroll.method
-	public Object[] getVideosByIds(KrollDict args) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+	public KrollDict getVideosByIds(KrollDict args) {
+		ReadAPI readAPI = Constants.getAPI();
+		KrollDict response = new KrollDict();
+		try {
+			String[] rawIds = args.getStringArray("ids");
+			HashSet<Long> ids = new HashSet<Long>();
+			for (String rawId : rawIds) {
+				ids.add(Long.parseLong(rawId));
+			}
+			FieldsResult fields = new FieldsResult(args);
+
+			populateResponseFromVideoCollection(response,
+					readAPI.findVideosByIds(ids, fields.videoFields,
+							fields.customFields));
+		} catch (Exception e) {
+			Util.e("Failed to getVideosByIds", e);
+			response.put("error", e.toString());
+		}
+		return response;
 	}
 
 	@Kroll.method
-	public Object[] getRelatedVideos(KrollDict args) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+	public KrollDict getRelatedVideos(KrollDict args) {
+		ReadAPI readAPI = Constants.getAPI();
+		KrollDict response = new KrollDict();
+		try {
+			Long pVideoId = (long) args.getInt("id");
+			String pReferenceId = args.getString("referenceId");
+			if (pReferenceId == null) {
+				pReferenceId = args.getString("referenceID");
+			}
+			Integer pPageSize = optInt(args, "pageSize", 100);
+			Integer pPageNumber = optInt(args, "pageNumber", 0);
+			FieldsResult fields = new FieldsResult(args);
+			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
+			HashSet<String> pCustomFields = fields.customFields;
+
+			populateResponseFromVideoCollection(
+					response,
+					readAPI.findRelatedVideos(pVideoId, pReferenceId,
+							pPageSize, pPageNumber, pVideoFields, pCustomFields));
+		} catch (Exception e) {
+			Util.e("Failed to getRelatedVideos", e);
+			response.put("error", e.toString());
+		}
+		return response;
 	}
 
 	@Kroll.method
-	public Object[] getVideosByReferenceIDs(KrollDict args) {
-		return getVideosByIds(args);
-	}
-	@Kroll.method
-	public Object[] getVideosByReferenceIds(KrollDict args) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+	public KrollDict getVideosByReferenceIDs(KrollDict args) {
+		return getVideosByReferenceIds(args);
 	}
 
 	@Kroll.method
-	public Object[] getVideosByUserID(KrollDict args) {
+	public KrollDict getVideosByReferenceIds(KrollDict args) {
+		ReadAPI readAPI = Constants.getAPI();
+		KrollDict response = new KrollDict();
+		try {
+			String[] rawReferenceIds = args.getStringArray("referenceIds");
+			if (rawReferenceIds == null) {
+				rawReferenceIds = args.getStringArray("referenceIDs");
+			}
+			HashSet<String> pReferenceIds = new HashSet<String>(
+					Arrays.asList(rawReferenceIds));
+			FieldsResult fields = new FieldsResult(args);
+			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
+			HashSet<String> pCustomFields = fields.customFields;
+
+			populateResponseFromVideoCollection(response,
+					readAPI.findVideosByReferenceIds(pReferenceIds,
+							pVideoFields, pCustomFields));
+		} catch (Exception e) {
+			Util.e("Failed to getVideosByReferenceIds", e);
+			response.put("error", e.toString());
+		}
+		return response;
+	}
+
+	@Kroll.method
+	public KrollDict getVideosByUserID(KrollDict args) {
 		return getVideosByUserId(args);
 	}
 	@Kroll.method
-	public Object[] getVideosByUserId(KrollDict args) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+	public KrollDict getVideosByUserId(KrollDict args) {
+		ReadAPI readAPI = Constants.getAPI();
+		KrollDict response = new KrollDict();
+		try {
+			String pUserId = args.getString("userId");
+			if (pUserId == null)
+				pUserId = args.getString("userID");
+			Integer pPageSize = optInt(args, "pageSize", 100);
+			Integer pPageNumber = optInt(args, "pageNumber", 0);
+			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args.getInt("sortType")];
+			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args.getInt("sortOrder")];
+			FieldsResult fields = new FieldsResult(args);
+			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
+			Set<String> pCustomFields = fields.customFields;
+			
+			populateResponseFromVideoCollection(response,
+					readAPI.findVideosByUserId(pUserId, pPageSize, pPageNumber, pSortBy, pSortOrderType, pVideoFields, pCustomFields));
+		} catch (Exception e) {
+			Util.e("Failed to getVideosByUserId", e);
+			response.put("error", e.toString());
+		}
+		return response;
 	}
 
 	@Kroll.method
-	public Object[] getModifiedVideos(KrollDict args) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+	public KrollDict getModifiedVideos(KrollDict args) {
+		ReadAPI readAPI = Constants.getAPI();
+		KrollDict response = new KrollDict();
+		try {
+
+			Date pFromDate = (Date) args.get("date");
+			Set<VideoStateFilterEnum> pFilter = null;
+			String[] rawFilters = args.getStringArray("filters");
+			if (rawFilters != null) {
+				pFilter = VideoStateFilterEnum.createEmptySet();
+				for (String rawFilter : rawFilters) {
+					pFilter.add(VideoStateFilterEnum.values()[Integer
+							.parseInt(rawFilter)]);
+				}
+			}
+			Integer pPageSize = optInt(args, "pageSize", 100);
+			Integer pPageNumber = optInt(args, "pageNumber", 0);
+			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args.getInt("sortType")];
+			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args.getInt("sortOrder")];
+			FieldsResult fields = new FieldsResult(args);
+			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
+			Set<String> pCustomFields = fields.customFields;
+			
+			populateResponseFromVideoCollection(response,
+					readAPI.findModifiedVideos(pFromDate, pFilter, pPageSize, pPageNumber, pSortBy, pSortOrderType, pVideoFields, pCustomFields));
+		} catch (Exception e) {
+			Util.e("Failed to getModifiedVideos", e);
+			response.put("error", e.toString());
+		}
+		return response;
 	}
 
 	@Kroll.method
-	public Object[] getVideosByText(KrollDict args) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+	public KrollDict getVideosByText(KrollDict args) {
+		ReadAPI readAPI = Constants.getAPI();
+		KrollDict response = new KrollDict();
+		try {
+			String pText = args.getString("text");
+			Integer pPageSize = optInt(args, "pageSize", 100);
+			Integer pPageNumber = optInt(args, "pageNumber", 0);
+			FieldsResult fields = new FieldsResult(args);
+			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
+			Set<String> pCustomFields = fields.customFields;
+			
+			populateResponseFromVideoCollection(response,
+					readAPI.findVideosByText(pText, pPageSize, pPageNumber, pVideoFields, pCustomFields));
+		} catch (Exception e) {
+			Util.e("Failed to getVideosByText", e);
+			response.put("error", e.toString());
+		}
+		return response;
 	}
 
 	@Kroll.method
-	public Object[] getVideosByTags(KrollDict args) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+	public KrollDict getVideosByTags(KrollDict args) {
+		ReadAPI readAPI = Constants.getAPI();
+		KrollDict response = new KrollDict();
+		try {
+			String[] rawAndTags = args.getStringArray("andTags");
+			HashSet<String> pAndTags = new HashSet<String>(
+					Arrays.asList(rawAndTags));
+			String[] rawOrTags = args.getStringArray("orTags");
+			HashSet<String> pOrTags = new HashSet<String>(
+					Arrays.asList(rawOrTags));
+			Integer pPageSize = optInt(args, "pageSize", 100);
+			Integer pPageNumber = optInt(args, "pageNumber", 0);
+			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args
+					.getInt("sortType")];
+			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args
+					.getInt("sortOrder")];
+			FieldsResult fields = new FieldsResult(args);
+			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
+			Set<String> pCustomFields = fields.customFields;
+
+			populateResponseFromVideoCollection(response,
+					readAPI.findVideosByTags(pAndTags, pOrTags, pPageSize,
+							pPageNumber, pSortBy, pSortOrderType, pVideoFields,
+							pCustomFields));
+		} catch (Exception e) {
+			Util.e("Failed to getVideosByTags", e);
+			response.put("error", e.toString());
+		}
+		return response;
 	}
 
 	@Kroll.method
-	public Object[] getPlaylists(KrollDict args) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+	public KrollDict getPlaylists(KrollDict args) {
+		ReadAPI readAPI = Constants.getAPI();
+		KrollDict response = new KrollDict();
+		try {
+			Integer pPageSize = optInt(args, "pageSize", 100);
+			Integer pPageNumber = optInt(args, "pageNumber", 0);
+			Boolean pGetItemCount = true;
+			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args
+					.getInt("sortType")];
+			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args
+					.getInt("sortOrder")];
+			FieldsResult fields = new FieldsResult(args);
+			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
+			Set<String> pCustomFields = fields.customFields;
+			EnumSet<PlaylistFieldEnum> pPlaylistFields = fields.playlistFields;
+			populateResponseFromPlaylistCollection(response,
+					readAPI.findAllPlaylists(pPageSize, pPageNumber,
+							pGetItemCount, pSortBy, pSortOrderType,
+							pVideoFields, pCustomFields, pPlaylistFields));
+		} catch (Exception e) {
+			Util.e("Failed to getPlaylists", e);
+			response.put("error", e.toString());
+		}
+		return response;
 	}
 
 	@Kroll.method
-	public Object[] getPlaylistsByIds(KrollDict args) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+	public KrollDict getPlaylistsByIds(KrollDict args) {
+		ReadAPI readAPI = Constants.getAPI();
+		KrollDict response = new KrollDict();
+		try {
+			HashSet<Long> pPlaylistIds = new HashSet<Long>();
+			for (String rawId : args.getStringArray("ids")) {
+				pPlaylistIds.add(Long.parseLong(rawId));
+			}
+			FieldsResult fields = new FieldsResult(args);
+			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
+			Set<String> pCustomFields = fields.customFields;
+			EnumSet<PlaylistFieldEnum> pPlaylistFields = fields.playlistFields;
+			populateResponseFromPlaylistCollection(response,
+					readAPI.findPlaylistsByIds(pPlaylistIds, pVideoFields, pCustomFields, pPlaylistFields));
+		} catch (Exception e) {
+			Util.e("Failed to getPlaylistsByIds", e);
+			response.put("error", e.toString());
+		}
+		return response;
 	}
 
 	@Kroll.method
-	public Object[] getPlaylistsByReferenceIds(KrollDict args) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+	public KrollDict getPlaylistsByReferenceIds(KrollDict args) {
+		ReadAPI readAPI = Constants.getAPI();
+		KrollDict response = new KrollDict();
+		try {
+			HashSet<String> pReferenceIds = new HashSet<String>(
+					Arrays.asList(args.getStringArray("referenceIds")));
+			FieldsResult fields = new FieldsResult(args);
+			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
+			Set<String> pCustomFields = fields.customFields;
+			EnumSet<PlaylistFieldEnum> pPlaylistFields = fields.playlistFields;
+			populateResponseFromPlaylistCollection(response,
+					readAPI.findPlaylistsByReferenceIds(pReferenceIds,
+							pVideoFields, pCustomFields, pPlaylistFields));
+		} catch (Exception e) {
+			Util.e("Failed to getPlaylistsByReferenceIds", e);
+			response.put("error", e.toString());
+		}
+		return response;
 	}
 
 	@Kroll.method
-	public Object[] getPlaylistsByPlayerId(KrollDict args) {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+	public KrollDict getPlaylistsByPlayerId(KrollDict args) {
+		ReadAPI readAPI = Constants.getAPI();
+		KrollDict response = new KrollDict();
+		try {
+			Long pPlayerId = (long)args.getInt(args.containsKey("playerId") ? "playerId" : "playerID");
+			Integer pPageSize = optInt(args, "pageSize", 100);
+			Integer pPageNumber = optInt(args, "pageNumber", 0);
+			FieldsResult fields = new FieldsResult(args);
+			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
+			Set<String> pCustomFields = fields.customFields;
+			EnumSet<PlaylistFieldEnum> pPlaylistFields = fields.playlistFields;
+			populateResponseFromPlaylistCollection(response,
+					readAPI.findPlaylistsForPlayerId(pPlayerId, pPageSize, pPageNumber, pVideoFields, pCustomFields, pPlaylistFields));
+		} catch (Exception e) {
+			Util.e("Failed to getPlaylistsByPlayerId", e);
+			response.put("error", e.toString());
+		}
+		return response;
 	}
 	
 }

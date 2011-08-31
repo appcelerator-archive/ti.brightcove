@@ -114,6 +114,7 @@ Gets videos from the Brightcove service that were modified after the specified t
 with the following properties:
 
 * date[object]: The date videos were modified after
+* filters[array] (optional): An array of video state filters. Use the constants starting with "STATE\_"
 * pageSize[int] (optional): The number of videos to include on a returned page
 * pageNumber[int] (optional): The page number to return
 * sortType[int] (optional): The type of sorting to perform
@@ -134,6 +135,8 @@ Gets videos from the Brightcove service whose name or description contains the p
 Takes a dictionary argument, with the following properties:
 
 * text[string]: The text to match
+* pageSize[int] (optional): The number of videos to include on a returned page
+* pageNumber[int] (optional): The page number to return
 * videoFields[array] (optional): An array of fields which should match the returned videos
 * customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.
 

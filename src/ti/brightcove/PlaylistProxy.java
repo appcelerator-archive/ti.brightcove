@@ -1,42 +1,52 @@
+/**
+ * Ti.Brightcove Module
+ * Copyright (c) 2010-2011 by Appcelerator, Inc. All Rights Reserved.
+ * Please see the LICENSE included with this distribution for details.
+ */
 package ti.brightcove;
+
+import java.util.List;
 
 import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.TiContext;
 
+import com.brightcove.mobile.mediaapi.model.Playlist;
+import com.brightcove.mobile.mediaapi.model.Video;
+
 @Kroll.proxy
 public class PlaylistProxy extends KrollProxy {
 
-	public PlaylistProxy(TiContext context) {
+	private Playlist _playlist;
+	
+	public PlaylistProxy(TiContext context, Playlist playlist) {
 		super(context);
+		_playlist = playlist;
 	}
 	
 	@Kroll.getProperty
 	public String getName() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		return _playlist.getName();
 	}
 	
 	@Kroll.getProperty
 	public String getShortDescription() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		return _playlist.getShortDescription();
 	}
 	
 	@Kroll.getProperty
 	public String getPlaylistTypeString() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		return _playlist.getPlaylistType().toString();
+	}
+	
+	@Kroll.getProperty
+	public int getPlaylistType() {
+		return _playlist.getPlaylistType().ordinal();
 	}
 	
 	@Kroll.getProperty
 	public String getThumbnailURL() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		return _playlist.getThumbnailUrl();
 	}
 
 	@Kroll.getProperty
@@ -45,20 +55,16 @@ public class PlaylistProxy extends KrollProxy {
 	}
 	@Kroll.getProperty
 	public int getPlaylistId() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return 0;
+		return Util.degrade(_playlist.getId());
 	}
 
 	@Kroll.getProperty
-	public int getReferenceID() {
+	public String getReferenceID() {
 		return getReferenceId();
 	}
 	@Kroll.getProperty
-	public int getReferenceId() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return 0;
+	public String getReferenceId() {
+		return _playlist.getReferenceId();
 	}
 
 	@Kroll.getProperty
@@ -67,30 +73,29 @@ public class PlaylistProxy extends KrollProxy {
 	}
 	@Kroll.getProperty
 	public int getAccountId() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return 0;
-	}
-	
-	@Kroll.getProperty
-	public int getPlaylistType() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return 0;
+		return Util.degrade(_playlist.getAccountId());
 	}
 
 	@Kroll.getProperty
 	public int[] getVideoIds() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		List<Long> ids = _playlist.getVideoIds();
+		int[] retVal = new int[ids.size()];
+		int key = 0;
+		for (Long id : ids) {
+			retVal[key++] = Util.degrade(id);
+		}
+		return retVal;
 	}
 
 	@Kroll.getProperty
 	public VideoProxy[] getVideos() {
-		// TODO: implement this!
-		Util.e("Not implemented yet!");
-		return null;
+		List<Video> videos = _playlist.getVideos();
+		VideoProxy[] retVal = new VideoProxy[videos.size()];
+		int key = 0;
+		for (Video video : videos) {
+			retVal[key++] = new VideoProxy(context, video);
+		}
+		return retVal;
 	}
 
 }

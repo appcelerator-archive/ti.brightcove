@@ -19,6 +19,14 @@ public final class Util {
 	 */
 	private Util() {
 	}
+	
+	public static int degrade(long l) {
+		int i = (int)l;
+	    if ((long)i != l) {
+	        throw new IllegalArgumentException(l + " cannot be downgraded to int without changing its value.");
+	    }
+	    return i;
+	}
 
 	/*
 	 * These 8 methods are useful for logging purposes -- they make what we do
