@@ -1,47 +1,49 @@
-// This is a test harness for your module
-// You should do something interesting in this harness 
-// to test out the module and to provide instructions 
-// to users on how to use it by example.
-
-
-// open a single window
-var window = Ti.UI.createWindow({
-  backgroundColor:'white'
-});
-
 Ti.Brightcove = require('ti.brightcove');
-Ti.Brightcove.readToken = "<<<YOUR READ TOKEN HERE>>>";
+Ti.Brightcove.readToken = '<<<YOUR READ TOKEN HERE>>>';
+Ti.Brightcove.logging = true;
+
+var win = Ti.UI.createWindow({
+    backgroundColor: 'white'
+});
 
 var vButton = Ti.UI.createButton({
-	title:'Get videos',
-	width:200,
-	height:40,
-	top:20
+    title: 'Get videos',
+    width: 200, height: 40,
+    top: 20
 });
 vButton.addEventListener('click', function() {
-	var videoInfo = Ti.Brightcove.getVideos();
-	var vidWin = Ti.UI.createWindow({
-		url:'videos.js',
-		videos:videoInfo.videos,
-	});
-	vidWin.open();
+    var result = Ti.Brightcove.getVideos();
+    if (result.error) {
+        alert(result.error);
+    }
+    else {
+        Ti.UI.createWindow({
+            backgroundColor: 'white',
+            url: 'videos.js',
+            videos: result.videos
+        }).open();
+    }
 });
-window.add(vButton);
+win.add(vButton);
 
 var pButton = Ti.UI.createButton({
-	title:'Get playlists',
-	width:200,
-	height:40,
-	top:80
+    title: 'Get playlists',
+    width: 200, height: 40,
+    top: 80
 });
 pButton.addEventListener('click', function() {
-	var playlistInfo = Ti.Brightcove.getPlaylists();
-	var listWin = Ti.UI.createWindow({
-		url:'playlists.js',
-		playlistInfo:playlistInfo,
-	});
-	listWin.open();
+    var result = Ti.Brightcove.getPlaylists();
+    if (result.error) {
+        alert(result.error);
+    }
+    else {
+        Ti.UI.createWindow({
+            backgroundColor: 'white',
+            url: 'playlists.js',
+            playlistInfo: result
+        }).open();
+    }
 });
-window.add(pButton);
+win.add(pButton);
 
-window.open();
+win.open();
