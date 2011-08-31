@@ -127,23 +127,25 @@ public class BrightcoveModule extends KrollModule
 		public EnumSet<PlaylistFieldEnum> playlistFields;
 
 		public FieldsResult(KrollDict args) {
-			String[] rawVideoFields = args.getStringArray("videoFields");
-			if (rawVideoFields != null) {
+			if (args.containsKey("videoFields")) {
+				String[] rawVideoFields = args.getStringArray("videoFields");
 				videoFields = VideoFieldEnum.createEmptyEnumSet();
 				for (String rawField : rawVideoFields) {
 					videoFields.add(VideoFieldEnum.values()[Integer
 							.parseInt(rawField)]);
 				}
 			}
-			KrollDict rawCustomFields = args.getKrollDict("customFields");
-			if (rawCustomFields != null) {
+			if (args.containsKey("customFields")) {
+				KrollDict rawCustomFields = args.getKrollDict("customFields");
 				customFields = new HashSet<String>();
 				for (String key : rawCustomFields.keySet()) {
 					customFields.add(rawCustomFields.getString(key));
 				}
 			}
-			String[] rawPlaylistFields = args.getStringArray("playlistFields");
-			if (rawPlaylistFields != null) {
+
+			if (args.containsKey("playlistFields")) {
+				String[] rawPlaylistFields = args
+						.getStringArray("playlistFields");
 				playlistFields = PlaylistFieldEnum.createEmptyEnumSet();
 				for (String rawField : rawPlaylistFields) {
 					playlistFields.add(PlaylistFieldEnum.values()[Integer
@@ -153,28 +155,23 @@ public class BrightcoveModule extends KrollModule
 		}
 	}
 	
-	private int optInt(KrollDict args, String key, int def) {
-		if (args.containsKey(key))
-			return args.getInt(key);
-		return def;
-	}
-	
 	//
 	// Methods
 	//
 	@Kroll.method
-	public KrollDict getVideos(KrollDict args) {
+	public KrollDict getVideos(Object[] arguments) {
 		ReadAPI readAPI = Constants.getAPI();
 		KrollDict response = new KrollDict();
 		try {
+			KrollDict args = (arguments.length > 0 ? (KrollDict) arguments[0] : new KrollDict());
 			String pUserId = args.getString("userId");
 			if (pUserId == null)
 				pUserId = args.getString("userID");
-			Integer pPageSize = optInt(args, "pageSize", 100);
-			Integer pPageNumber = optInt(args, "pageNumber", 0);
+			Integer pPageSize = args.optInt("pageSize", 100);
+			Integer pPageNumber = args.optInt("pageNumber", 0);
 			Boolean pGetItemCount = true;
-			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args.getInt("sortType")];
-			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args.getInt("sortOrder")];
+			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args.optInt("sortType", 0)];
+			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args.optInt("sortOrder", 0)];
 			FieldsResult fields = new FieldsResult(args);
 			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
 			Set<String> pCustomFields = fields.customFields;
@@ -224,8 +221,8 @@ public class BrightcoveModule extends KrollModule
 			if (pReferenceId == null) {
 				pReferenceId = args.getString("referenceID");
 			}
-			Integer pPageSize = optInt(args, "pageSize", 100);
-			Integer pPageNumber = optInt(args, "pageNumber", 0);
+			Integer pPageSize = args.optInt("pageSize", 100);
+			Integer pPageNumber = args.optInt("pageNumber", 0);
 			FieldsResult fields = new FieldsResult(args);
 			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
 			HashSet<String> pCustomFields = fields.customFields;
@@ -283,10 +280,10 @@ public class BrightcoveModule extends KrollModule
 			String pUserId = args.getString("userId");
 			if (pUserId == null)
 				pUserId = args.getString("userID");
-			Integer pPageSize = optInt(args, "pageSize", 100);
-			Integer pPageNumber = optInt(args, "pageNumber", 0);
-			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args.getInt("sortType")];
-			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args.getInt("sortOrder")];
+			Integer pPageSize = args.optInt("pageSize", 100);
+			Integer pPageNumber = args.optInt("pageNumber", 0);
+			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args.optInt("sortType", 0)];
+			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args.optInt("sortOrder", 0)];
 			FieldsResult fields = new FieldsResult(args);
 			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
 			Set<String> pCustomFields = fields.customFields;
@@ -316,10 +313,10 @@ public class BrightcoveModule extends KrollModule
 							.parseInt(rawFilter)]);
 				}
 			}
-			Integer pPageSize = optInt(args, "pageSize", 100);
-			Integer pPageNumber = optInt(args, "pageNumber", 0);
-			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args.getInt("sortType")];
-			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args.getInt("sortOrder")];
+			Integer pPageSize = args.optInt("pageSize", 100);
+			Integer pPageNumber = args.optInt("pageNumber", 0);
+			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args.optInt("sortType", 0)];
+			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args.optInt("sortOrder", 0)];
 			FieldsResult fields = new FieldsResult(args);
 			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
 			Set<String> pCustomFields = fields.customFields;
@@ -339,8 +336,8 @@ public class BrightcoveModule extends KrollModule
 		KrollDict response = new KrollDict();
 		try {
 			String pText = args.getString("text");
-			Integer pPageSize = optInt(args, "pageSize", 100);
-			Integer pPageNumber = optInt(args, "pageNumber", 0);
+			Integer pPageSize = args.optInt("pageSize", 100);
+			Integer pPageNumber = args.optInt("pageNumber", 0);
 			FieldsResult fields = new FieldsResult(args);
 			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
 			Set<String> pCustomFields = fields.customFields;
@@ -365,12 +362,10 @@ public class BrightcoveModule extends KrollModule
 			String[] rawOrTags = args.getStringArray("orTags");
 			HashSet<String> pOrTags = new HashSet<String>(
 					Arrays.asList(rawOrTags));
-			Integer pPageSize = optInt(args, "pageSize", 100);
-			Integer pPageNumber = optInt(args, "pageNumber", 0);
-			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args
-					.getInt("sortType")];
-			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args
-					.getInt("sortOrder")];
+			Integer pPageSize = args.optInt("pageSize", 100);
+			Integer pPageNumber = args.optInt("pageNumber", 0);
+			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args.optInt("sortType", 0)];
+			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args.optInt("sortOrder", 0)];
 			FieldsResult fields = new FieldsResult(args);
 			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
 			Set<String> pCustomFields = fields.customFields;
@@ -387,17 +382,16 @@ public class BrightcoveModule extends KrollModule
 	}
 
 	@Kroll.method
-	public KrollDict getPlaylists(KrollDict args) {
+	public KrollDict getPlaylists(Object[] arguments) {
 		ReadAPI readAPI = Constants.getAPI();
 		KrollDict response = new KrollDict();
 		try {
-			Integer pPageSize = optInt(args, "pageSize", 100);
-			Integer pPageNumber = optInt(args, "pageNumber", 0);
+			KrollDict args = (arguments.length > 0 ? (KrollDict) arguments[0] : new KrollDict());
+			Integer pPageSize = args.optInt("pageSize", 100);
+			Integer pPageNumber = args.optInt("pageNumber", 0);
 			Boolean pGetItemCount = true;
-			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args
-					.getInt("sortType")];
-			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args
-					.getInt("sortOrder")];
+			SortByTypeEnum pSortBy = SortByTypeEnum.values()[args.optInt("sortType", 0)];
+			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[args.optInt("sortOrder", 0)];
 			FieldsResult fields = new FieldsResult(args);
 			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
 			Set<String> pCustomFields = fields.customFields;
@@ -462,8 +456,8 @@ public class BrightcoveModule extends KrollModule
 		KrollDict response = new KrollDict();
 		try {
 			Long pPlayerId = (long)args.getInt(args.containsKey("playerId") ? "playerId" : "playerID");
-			Integer pPageSize = optInt(args, "pageSize", 100);
-			Integer pPageNumber = optInt(args, "pageNumber", 0);
+			Integer pPageSize = args.optInt("pageSize", 100);
+			Integer pPageNumber = args.optInt("pageNumber", 0);
 			FieldsResult fields = new FieldsResult(args);
 			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
 			Set<String> pCustomFields = fields.customFields;
