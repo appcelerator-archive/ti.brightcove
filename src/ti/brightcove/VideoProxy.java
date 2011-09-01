@@ -25,6 +25,10 @@ public class VideoProxy extends KrollProxy {
 		_video = video;
 	}
 	
+	public Video getVideo() {
+		return _video;
+	}
+	
 	@Kroll.getProperty
 	public String getName() {
 		return _video.getName();

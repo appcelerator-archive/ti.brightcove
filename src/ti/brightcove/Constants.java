@@ -8,6 +8,7 @@ package ti.brightcove;
 import org.appcelerator.titanium.util.TiConfig;
 
 import com.brightcove.mobile.mediaapi.ReadAPI;
+import com.brightcove.mobile.mediaapi.model.enums.MediaDeliveryTypeEnum;
 
 public class Constants {
 	public static final String LCAT = "BrightcoveModule";
@@ -33,6 +34,7 @@ public class Constants {
 		}
 		if (_readAPI == null) {
 			_readAPI = new ReadAPI(_readToken);
+			_readAPI.setMediaDeliveryType(MediaDeliveryTypeEnum.HTTP);
 		}
 		return _readAPI;
 	}

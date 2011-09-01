@@ -12,7 +12,10 @@ var vButton = Ti.UI.createButton({
     top: 20
 });
 vButton.addEventListener('click', function() {
-    var result = Ti.Brightcove.getVideos();
+    var result = Ti.Brightcove.getVideos({
+        pageSize: 10,
+        sortType: Ti.Brightcove.SORT_BY_PLAYS_TOTAL
+    });
     if (result.error) {
         alert(result.error);
     }
