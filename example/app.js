@@ -1,6 +1,7 @@
 Ti.Brightcove = require('ti.brightcove');
 Ti.Brightcove.readToken = '<<<YOUR READ TOKEN HERE>>>';
 Ti.Brightcove.logging = true;
+Ti.Brightcove.deliveryType = Ti.Brightcove.DELIVERY_HTTP;
 
 var win = Ti.UI.createWindow({
     backgroundColor: 'white'
