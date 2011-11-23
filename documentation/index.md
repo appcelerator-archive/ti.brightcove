@@ -7,7 +7,7 @@ the Brightcove media service.
 ## Accessing the Ti.Brightcove Module
 To access this module from JavaScript, you would do the following:
 
-	Titanium.Brightcove = Ti.Brightcove = require("Ti.Brightcove");
+	var Brightcove = require('Ti.Brightcove');
 
 ## Functions
 

@@ -1,7 +1,7 @@
 // Have to reload Brightcove, because this is a new context...
-Ti.Brightcove = require('ti.brightcove');
-Ti.Brightcove.readToken = '<<<YOUR READ TOKEN HERE>>>';
-Ti.Brightcove.logging = true;
+var Brightcove = require('ti.brightcove');
+Brightcove.readToken = '<<<YOUR READ TOKEN HERE>>>';
+Brightcove.logging = true;
 
 var win = Ti.UI.currentWindow;
 
@@ -42,7 +42,7 @@ table.addEventListener('click', function(e) {
     var vidWin = Ti.UI.createWindow({
         backgroundColor: 'black'
     });
-    var player = Ti.Brightcove.createVideoPlayer({
+    var player = Brightcove.createVideoPlayer({
         video: e.row.video
     });
     player.addEventListener('complete', function() {

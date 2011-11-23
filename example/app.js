@@ -1,6 +1,6 @@
-Ti.Brightcove = require('ti.brightcove');
-Ti.Brightcove.readToken = '<<<YOUR READ TOKEN HERE>>>';
-Ti.Brightcove.logging = true;
+var Brightcove = require('ti.brightcove');
+Brightcove.readToken = '<<<YOUR READ TOKEN HERE>>>';
+Brightcove.logging = true;
 
 var win = Ti.UI.createWindow({
     backgroundColor: 'white'
@@ -12,7 +12,7 @@ var vButton = Ti.UI.createButton({
     top: 20
 });
 vButton.addEventListener('click', function() {
-    var result = Ti.Brightcove.getVideos();
+    var result = Brightcove.getVideos();
     if (result.error) {
         alert(result.error);
     }
@@ -32,7 +32,7 @@ var pButton = Ti.UI.createButton({
     top: 80
 });
 pButton.addEventListener('click', function() {
-    var result = Ti.Brightcove.getPlaylists();
+    var result = Brightcove.getPlaylists();
     if (result.error) {
         alert(result.error);
     }
