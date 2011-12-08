@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
-import org.appcelerator.titanium.TiContext;
 
 import com.brightcove.mobile.mediaapi.ReadAPI;
 import com.brightcove.mobile.mediaapi.model.ItemCollection;
@@ -35,10 +34,10 @@ import com.brightcove.mobile.mediaapi.model.enums.VideoFieldEnum;
 public class BrightcoveModule extends KrollModule
 {
 	
-	public BrightcoveModule(TiContext tiContext) {
-		super(tiContext);
+	public BrightcoveModule() {
+		super();
 	}
-	
+
 	//
 	// Properties
 	//
@@ -67,7 +66,7 @@ public class BrightcoveModule extends KrollModule
 			Constants.getAPI().setLogger(null);
 		}
 	}
-	
+
 	//
 	// Constants
 	//
@@ -104,7 +103,7 @@ public class BrightcoveModule extends KrollModule
 		response.put("totalCount", items.getTotalCount());
 		ArrayList<VideoProxy> proxied = new ArrayList<VideoProxy>();
 		for (Video item : items.getItems()) {
-			proxied.add(new VideoProxy(context, item));
+			proxied.add(new VideoProxy(item));
 		}
 		response.put("videos", proxied.toArray());
 	}
@@ -116,7 +115,7 @@ public class BrightcoveModule extends KrollModule
 		response.put("totalCount", items.getTotalCount());
 		ArrayList<PlaylistProxy> proxied = new ArrayList<PlaylistProxy>();
 		for (Playlist item : items.getItems()) {
-			proxied.add(new PlaylistProxy(context, item));
+			proxied.add(new PlaylistProxy(item));
 		}
 		response.put("playlists", proxied.toArray());
 	}
@@ -470,5 +469,4 @@ public class BrightcoveModule extends KrollModule
 		}
 		return response;
 	}
-	
 }

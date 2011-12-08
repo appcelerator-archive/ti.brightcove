@@ -5,7 +5,6 @@
  */
 package ti.brightcove;
 
-import org.appcelerator.titanium.TiContext;
 import org.appcelerator.titanium.proxy.TiViewProxy;
 import org.appcelerator.titanium.view.TiUIView;
 import org.appcelerator.kroll.KrollDict;
@@ -20,8 +19,8 @@ public class VideoPlayerProxy extends TiViewProxy {
 	private double _lowRate;
 	private double _highRate;
 
-	public VideoPlayerProxy(TiContext tiContext) {
-		super(tiContext);
+	public VideoPlayerProxy() {
+		super();
 	}
 
 	@Override

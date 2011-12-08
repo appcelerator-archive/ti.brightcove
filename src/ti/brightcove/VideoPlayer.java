@@ -30,7 +30,7 @@ public class VideoPlayer extends TiUIView {
 	private BCPlayerView _player;
 
 	private BCPlayerView createPlayer() {
-		BCPlayerView player = new BCPlayerView(proxy.getContext());
+		BCPlayerView player = new BCPlayerView(proxy.getActivity());
 		player.setGravity(Gravity.CENTER);
 		player.logEnabled(true);
 		player.setOnErrorListener(new OnErrorListener() {

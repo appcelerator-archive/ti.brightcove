@@ -2,7 +2,7 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 1.0
+version: 2.0
 description: Module for interactions with the Brightcove media service
 author: Dawson Toth
 license: Appcelerator Commercial License
@@ -14,4 +14,4 @@ name: brightcove
 moduleid: ti.brightcove
 guid: 2c94b236-9c45-4202-835b-85bb13b261ae
 platform: android
-minsdk: 1.6.0
+minsdk: 1.8.0.1

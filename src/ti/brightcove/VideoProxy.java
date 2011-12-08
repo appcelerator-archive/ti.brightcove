@@ -10,7 +10,6 @@ import java.util.Date;
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.kroll.annotations.Kroll;
-import org.appcelerator.titanium.TiContext;
 
 import com.brightcove.mobile.mediaapi.model.CustomField;
 import com.brightcove.mobile.mediaapi.model.Video;
@@ -20,8 +19,8 @@ public class VideoProxy extends KrollProxy {
 
 	private Video _video;
 	
-	public VideoProxy(TiContext context, Video video) {
-		super(context);
+	public VideoProxy(Video video) {
+		super();
 		_video = video;
 	}
 	

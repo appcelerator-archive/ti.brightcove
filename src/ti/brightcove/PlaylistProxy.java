@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.kroll.annotations.Kroll;
-import org.appcelerator.titanium.TiContext;
 
 import com.brightcove.mobile.mediaapi.model.Playlist;
 import com.brightcove.mobile.mediaapi.model.Video;
@@ -19,8 +18,8 @@ public class PlaylistProxy extends KrollProxy {
 
 	private Playlist _playlist;
 	
-	public PlaylistProxy(TiContext context, Playlist playlist) {
-		super(context);
+	public PlaylistProxy(Playlist playlist) {
+		super();
 		_playlist = playlist;
 	}
 	
@@ -93,7 +92,7 @@ public class PlaylistProxy extends KrollProxy {
 		VideoProxy[] retVal = new VideoProxy[videos.size()];
 		int key = 0;
 		for (Video video : videos) {
-			retVal[key++] = new VideoProxy(context, video);
+			retVal[key++] = new VideoProxy(video);
 		}
 		return retVal;
 	}
