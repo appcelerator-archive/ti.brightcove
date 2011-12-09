@@ -3,7 +3,7 @@
 # during compilation, packaging, distribution, etc.
 #
 version: 2.0
-module.apiversion: 2
+apiversion: 2
 description: Module for interactions with the Brightcove media service
 author: Dawson Toth
 license: Appcelerator Commercial License
