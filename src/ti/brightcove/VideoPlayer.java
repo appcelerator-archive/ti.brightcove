@@ -7,6 +7,7 @@ package ti.brightcove;
 
 import org.appcelerator.titanium.proxy.TiViewProxy;
 import org.appcelerator.titanium.view.TiUIView;
+import org.appcelerator.titanium.TiApplication;
 
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnErrorListener;
@@ -30,7 +31,7 @@ public class VideoPlayer extends TiUIView {
 	private BCPlayerView _player;
 
 	private BCPlayerView createPlayer() {
-		BCPlayerView player = new BCPlayerView(proxy.getActivity());
+		BCPlayerView player = new BCPlayerView(TiApplication.getAppCurrentActivity());
 		player.setGravity(Gravity.CENTER);
 		player.logEnabled(true);
 		player.setOnErrorListener(new OnErrorListener() {
