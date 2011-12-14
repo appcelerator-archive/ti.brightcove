@@ -14,6 +14,8 @@ import org.appcelerator.kroll.annotations.Kroll;
 import com.brightcove.mobile.mediaapi.model.CustomField;
 import com.brightcove.mobile.mediaapi.model.Video;
 
+import java.util.HashMap;
+
 @Kroll.proxy
 public class VideoProxy extends KrollProxy {
 
@@ -121,8 +123,8 @@ public class VideoProxy extends KrollProxy {
 	}
 
 	@Kroll.getProperty
-	public KrollDict getCustomFields() {
-		KrollDict retVal = new KrollDict();
+	public HashMap getCustomFields() {
+		HashMap retVal = new HashMap();
 		for (CustomField field : _video.getCustomFields()) {
 			retVal.put(field.getName(), field.getValue());
 		}
