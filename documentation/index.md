@@ -4,6 +4,11 @@
 The Ti.Brightcove module provides access to the retrieval and playback of videos from
 the Brightcove media service.
 
+## Getting Started
+
+View the [Configuring Apps to Use Modules](https://wiki.appcelerator.org/display/guides/Configuring+Apps+to+Use+Modules) page for instructions on getting
+started with using this module in your application.
+
 ## Accessing the Ti.Brightcove Module
 To access this module from JavaScript, you would do the following:
 
