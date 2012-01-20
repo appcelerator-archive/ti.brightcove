@@ -5,7 +5,7 @@
  */
 package ti.brightcove;
 
-import org.appcelerator.titanium.util.TiConfig;
+import org.appcelerator.kroll.common.TiConfig;
 
 import com.brightcove.mobile.mediaapi.ReadAPI;
 import com.brightcove.mobile.mediaapi.model.enums.MediaDeliveryTypeEnum;
