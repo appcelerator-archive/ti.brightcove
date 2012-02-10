@@ -51,10 +51,6 @@ table.addEventListener('click', function(e) {
 
     if (parseFloat(Titanium.Platform.version) >= 3.2) {
         player.movieControlStyle = Titanium.Media.VIDEO_CONTROL_FULLSCREEN;
-        if (Titanium.Platform.osname == 'ipad') {
-            player.width = 400;
-            player.height = 300;
-        }
         vidWin.add(player);
     }
     vidWin.open();
