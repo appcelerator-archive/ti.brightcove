@@ -11,48 +11,46 @@ var videoRows = [];
 for (var i = 0; i < videos.length; i++) {
     var video = videos[i];
     var row = Ti.UI.createTableViewRow({
-        height: 'auto', width: 'auto',
+        height: 80,
         video: video
     });
-    var view = Ti.UI.createView({
-        left: 0, top: 0,
-        height: 'auto', width: 'auto'
-    });
-    view.add(Ti.UI.createImageView({
+    row.add(Ti.UI.createImageView({
         image: video.thumbnailURL,
-        left: 0, top: 0,
+        top: 0, left: 0,
         width: 120, height: 90
     }));
-    view.add(Ti.UI.createLabel({
-        text: video.name,
-        top: 10, left: 130,
-        height: 'auto', width: 'auto'
+    row.add(Ti.UI.createLabel({
+        text: video.name + '\n' + video.shortDescription,
+        top: 10, right: 10, bottom: 10, left: 130
     }));
-    view.add(Ti.UI.createLabel({
-        text: video.shortDescription,
-        bottom: 10, left: 130,
-        height: 'auto', width: 'auto'
-    }));
-    row.add(view);
     videoRows.push(row);
 }
 
-var table = Ti.UI.createTableView({data: videoRows});
-table.addEventListener('click', function(e) {
+var table = Ti.UI.createTableView({
+    data: videoRows
+});
+table.addEventListener('click', function (e) {
     var vidWin = Ti.UI.createWindow({
-        backgroundColor: 'black'
+        backgroundColor: 'black',
+        navBarHidden: false
     });
     var player = Brightcove.createVideoPlayer({
         video: e.row.video
     });
-    player.addEventListener('complete', function() {
+    player.addEventListener('complete', function () {
         vidWin.close();
     });
 
-    if (parseFloat(Titanium.Platform.version) >= 3.2) {
-        player.movieControlStyle = Titanium.Media.VIDEO_CONTROL_FULLSCREEN;
+    if (Ti.Platform.name === 'iPhone OS') {
+        if (parseFloat(Titanium.Platform.version) >= 3.2) {
+            player.movieControlStyle = Titanium.Media.VIDEO_CONTROL_FULLSCREEN;
+            vidWin.add(player);
+        }
+    }
+    else {
         vidWin.add(player);
     }
+
     vidWin.open();
 });
 win.add(table);
