@@ -182,13 +182,6 @@
 - (BCItemCollection *) findVideosByReferenceIds:(NSArray *) referenceIds videoFields:(NSArray *) videoFields 
 						customFields:(NSArray *)customFields error:(NSError **) error;
 
-/// A convenience method which invokes findVideoByUserId using the specified user id and default arguments for optional parameters
-- (BCItemCollection *) findVideosByUserId:(NSString *) userId error:(NSError **) error;
-
-/// This method wraps the remote find_videos_by_user_id API request and returns a BCItemCollection containing the results
-- (BCItemCollection *) findVideosByUserId:(NSString *) userId pageSize:(int)pageSize pageNumber:(int)pageNumber
-						sortBy:(BCSortByType)sortByType sortOrder:(BCSortOrderType)sortOrderType getItemCount:(BOOL)getItemCount 
-						videoFields:(NSArray *)videoFields customFields:(NSArray *)customFields error:(NSError **) error;
 
 /// A convenience method which invokes findModifiedVideos using the specified NSDate as a start date and default arguments for optional parameters
 - (BCItemCollection *) findModifiedVideos:(NSDate *) fromDate error:(NSError **) error;

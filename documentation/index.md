@@ -86,68 +86,12 @@ Returns the following dictionary:
 * pageNumber[int]: The page number returned by the operation (NOTE: This value may not be defined for this operation)
 * pageSize[int]: The number of videos in the page (NOTE: This value may not be defined for this operation)
 
-### Ti.Brightcove.getVideosByUserId({...})
-Gets videos for the specified user ID from the Brightcove service.  Takes a dictionary argument
-with the following properties:
-
-* userId[string]: The user ID to retrieve videos for
-* pageSize[int] (optional): The number of videos to include on a returned page
-* pageNumber[int] (optional): The page number to return
-* sortType[int] (optional): The type of sorting to perform
-* sortOrder[int] (optional): The order to sort in
-* videoFields[array] (optional): An array of fields which should match the returned videos
-* customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.
-
-Returns the following dictionary:
-
-* totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)
-* videos[array]: The [Ti.Brightcove.Video][] objects returned by the query
-* pageNumber[int]: The page number returned by the operation
-* pageSize[int]: The number of videos in the page
-
 ### Ti.Brightcove.getModifiedVideos({...})
 Gets videos from the Brightcove service that were modified after the specified time.  Takes a dictionary argument,
 with the following properties:
 
 * date[object]: The date videos were modified after
 * filters[array] (optional): An array of video state filters. Use the constants starting with "STATE\_"
-* pageSize[int] (optional): The number of videos to include on a returned page
-* pageNumber[int] (optional): The page number to return
-* sortType[int] (optional): The type of sorting to perform
-* sortOrder[int] (optional): The order to sort in
-* videoFields[array] (optional): An array of fields which should match the returned videos
-* customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.
-
-Returns the following dictionary:
-
-* totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)
-* videos[array]: The [Ti.Brightcove.Video][] objects returned by the query
-* pageNumber[int]: The page number returned by the operation
-* pageSize[int]: The number of videos in the page
-
-### Ti.Brightcove.getVideosByText({...})
-Gets videos from the Brightcove service whose name or description contains the provided text.
-Takes a dictionary argument, with the following properties:
-
-* text[string]: The text to match
-* pageSize[int] (optional): The number of videos to include on a returned page
-* pageNumber[int] (optional): The page number to return
-* videoFields[array] (optional): An array of fields which should match the returned videos
-* customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.
-
-Returns the following dictionary:
-
-* totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)
-* videos[array]: The [Ti.Brightcove.Video][] objects returned by the query
-* pageNumber[int]: The page number returned by the operation (NOTE: This value may not be defined for this operation)
-* pageSize[int]: The number of videos in the page (NOTE: This value may not be defined for this operation)
-
-### Ti.Brightcove.getVideosByTags({...})
-Gets videos from the Brightcove service with the matching tags.  Takes a dictionary argument,
-with the following properties:
-
-* andTags[array]: An array of tags.  Matched videos MUST contain ALL of these tags.
-* orTags[array]: An array of tags.  Matched videos MAY contain ONE OR MORE of these tags.
 * pageSize[int] (optional): The number of videos to include on a returned page
 * pageNumber[int] (optional): The page number to return
 * sortType[int] (optional): The type of sorting to perform
@@ -230,6 +174,45 @@ Returns the following dictionary:
 * playlists[array]: The [Ti.Brightcove.Playlist][] objects returned by the query
 * pageNumber[int]: The page number returned by the operation
 * pageSize[int]: The number of playlists in the page
+
+## Deprecated Functions
+
+### Ti.Brightcove.getVideosByText({...})
+Gets videos from the Brightcove service whose name or description contains the provided text.
+Takes a dictionary argument, with the following properties:
+
+* text[string]: The text to match
+* pageSize[int] (optional): The number of videos to include on a returned page
+* pageNumber[int] (optional): The page number to return
+* videoFields[array] (optional): An array of fields which should match the returned videos
+* customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.
+
+Returns the following dictionary:
+
+* totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)
+* videos[array]: The [Ti.Brightcove.Video][] objects returned by the query
+* pageNumber[int]: The page number returned by the operation (NOTE: This value may not be defined for this operation)
+* pageSize[int]: The number of videos in the page (NOTE: This value may not be defined for this operation)
+
+### Ti.Brightcove.getVideosByTags({...})
+Gets videos from the Brightcove service with the matching tags.  Takes a dictionary argument,
+with the following properties:
+
+* andTags[array]: An array of tags.  Matched videos MUST contain ALL of these tags.
+* orTags[array]: An array of tags.  Matched videos MAY contain ONE OR MORE of these tags.
+* pageSize[int] (optional): The number of videos to include on a returned page
+* pageNumber[int] (optional): The page number to return
+* sortType[int] (optional): The type of sorting to perform
+* sortOrder[int] (optional): The order to sort in
+* videoFields[array] (optional): An array of fields which should match the returned videos
+* customFields[array] (optional): An array of custom field {name:value} pairs which should match the returned videos.
+
+Returns the following dictionary:
+
+* totalCount[int]: The total number of videos returned (NOTE: This value may be incorrect)
+* videos[array]: The [Ti.Brightcove.Video][] objects returned by the query
+* pageNumber[int]: The page number returned by the operation
+* pageSize[int]: The number of videos in the page
 
 ## Properties
 

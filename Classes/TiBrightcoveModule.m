@@ -220,51 +220,6 @@
 	return resultDictionary;
 }
 
--(id)getVideosByUserId:(id)args
-{
-	ENSURE_SINGLE_ARG(args, NSDictionary);
-	NSString* userId = [args objectForKey:@"userId"];
-	if (userId == nil) {
-		[self throwException:@"getVideosByUserId() requires 'userId' property in argument"
-				   subreason:nil
-					location:CODELOCATION];
-	}
-	
-	NSError* error;
-	int pageSize = [TiUtils intValue:@"pageSize" properties:args def:100];
-	int pageNumber = [TiUtils intValue:@"pageNumber" properties:args def:0];
-	BCSortByType sortType = [TiUtils intValue:@"sortBy" properties:args def:BCSortByTypePublishDate];
-	BCSortOrderType sortOrder = [TiUtils intValue:@"sortOrder" properties:args def:BCSortOrderTypeASC];
-	
-	BCItemCollection* collection = [[self api] findVideosByUserId:userId
-														pageSize:pageSize
-													  pageNumber:pageNumber
-														   sortBy:sortType
-														sortOrder:sortOrder
-													getItemCount:YES
-													 videoFields:[args objectForKey:@"videoFields"]
-													customFields:[args objectForKey:@"customFields"]
-														   error:&error];
-	
-	if (collection == nil) {
-		[self throwException:@"Brightcove error" 
-				   subreason:[[self api] getErrorsAsString:error]
-					location:CODELOCATION];
-	}
-	
-	NSMutableArray* videoObjects = [NSMutableArray array];
-	for (id video in [collection items]) {
-		[videoObjects addObject:[[[TiBrightcoveVideo alloc] _initWithPageContext:[self pageContext] video:video] autorelease]];
-	}
-	
-	NSDictionary* resultDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithLongLong:[collection totalCount]],@"totalCount",
-									  videoObjects,@"videos",
-									  [NSNumber numberWithInt:[collection pageNumber]], @"pageNumber",
-									  [NSNumber numberWithInt:[collection pageSize]], @"pageSize", nil];
-	
-	return resultDictionary;
-}
-
 -(id)getModifiedVideos:(id)args
 {
 	ENSURE_SINGLE_ARG(args, NSDictionary);
@@ -313,6 +268,7 @@
 
 -(id)getVideosByText:(id)args
 {
+	NSLog(@"[WARN] BrightcoveModule getVideosByText has been deprecated.");
 	ENSURE_SINGLE_ARG(args, NSDictionary);
 	NSString* text = [args objectForKey:@"text"];
 	if (text == nil) {
@@ -354,6 +310,7 @@
 
 -(id)getVideosByTags:(id)args
 {
+	NSLog(@"[WARN] BrightcoveModule getVideosByTags has been deprecated.");
 	ENSURE_SINGLE_ARG(args, NSDictionary);
 	NSArray* andTags = [args objectForKey:@"andTags"];
 	NSArray* orTags = [args objectForKey:@"orTags"];
