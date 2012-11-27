@@ -17,6 +17,7 @@ import java.util.HashMap;
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
+import org.appcelerator.kroll.common.Log;
 
 import com.brightcove.mobile.mediaapi.ReadAPI;
 import com.brightcove.mobile.mediaapi.model.ItemCollection;
@@ -34,7 +35,9 @@ import com.brightcove.mobile.mediaapi.model.enums.VideoFieldEnum;
 @Kroll.module(name="Brightcove", id="ti.brightcove")
 public class BrightcoveModule extends KrollModule
 {
-	
+	// Standard Debugging variables
+	private static final String LCAT = "BrightcoveModule";
+		
 	public BrightcoveModule() {
 		super();
 	}
@@ -274,36 +277,6 @@ public class BrightcoveModule extends KrollModule
 	}
 
 	@Kroll.method
-	public HashMap getVideosByUserID(HashMap args) {
-		return getVideosByUserId(args);
-	}
-	@Kroll.method
-	public HashMap getVideosByUserId(HashMap args) {
-	    KrollDict argsDict = new KrollDict(args);
-		ReadAPI readAPI = Constants.getAPI();
-		HashMap response = new HashMap();
-		try {
-			String pUserId = argsDict.getString("userId");
-			if (pUserId == null)
-				pUserId = argsDict.getString("userID");
-			Integer pPageSize = argsDict.optInt("pageSize", 100);
-			Integer pPageNumber = argsDict.optInt("pageNumber", 0);
-			SortByTypeEnum pSortBy = SortByTypeEnum.values()[argsDict.optInt("sortType", 0)];
-			SortOrderTypeEnum pSortOrderType = SortOrderTypeEnum.values()[argsDict.optInt("sortOrder", 0)];
-			FieldsResult fields = new FieldsResult(args);
-			EnumSet<VideoFieldEnum> pVideoFields = fields.videoFields;
-			Set<String> pCustomFields = fields.customFields;
-			
-			populateResponseFromVideoCollection(response,
-					readAPI.findVideosByUserId(pUserId, pPageSize, pPageNumber, pSortBy, pSortOrderType, pVideoFields, pCustomFields));
-		} catch (Exception e) {
-			Util.e("Failed to getVideosByUserId", e);
-			response.put("error", e.toString());
-		}
-		return response;
-	}
-
-	@Kroll.method
 	public HashMap getModifiedVideos(HashMap args) {
 	    KrollDict argsDict = new KrollDict(args);
 		ReadAPI readAPI = Constants.getAPI();
@@ -339,6 +312,7 @@ public class BrightcoveModule extends KrollModule
 
 	@Kroll.method
 	public HashMap getVideosByText(HashMap args) {
+		Log.w(LCAT, "getVideosByText has been deprecated.");
 	    KrollDict argsDict = new KrollDict(args);
 		ReadAPI readAPI = Constants.getAPI();
 		HashMap response = new HashMap();
@@ -361,6 +335,7 @@ public class BrightcoveModule extends KrollModule
 
 	@Kroll.method
 	public HashMap getVideosByTags(HashMap args) {
+		Log.w(LCAT, "getVideosByTags has been deprecated.");
 	    KrollDict argsDict = new KrollDict(args);
 		ReadAPI readAPI = Constants.getAPI();
 		HashMap response = new HashMap();
