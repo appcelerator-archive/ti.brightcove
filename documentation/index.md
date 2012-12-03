@@ -14,6 +14,9 @@ To access this module from JavaScript, you would do the following:
 
 	var Brightcove = require('Ti.Brightcove');
 
+## Warning when Updating to Brightcove v2.1.0
+-  BREAKING CHANGE: the "getVideosByUserId" aka "find_videos_by_user_id" method was deprecated and has been removed from brightcove's API. See the online [SDK reference document](http://docs.brightcove.com/en/media/reference.html) for alternatives.
+
 ## Functions
 
 ### Ti.Brightcove.createVideoPlayer({...})
@@ -178,6 +181,9 @@ Returns the following dictionary:
 ## Deprecated Functions
 
 ### Ti.Brightcove.getVideosByText({...})
+##### Deprecated as of v2.1.0 and will be removed. 
+Brightcove recommends using `search_videos` as documented in their [API Reference docs](http://docs.brightcove.com/en/media/reference.html). `search_videos` will be added to this module in a future version.
+
 Gets videos from the Brightcove service whose name or description contains the provided text.
 Takes a dictionary argument, with the following properties:
 
@@ -195,6 +201,9 @@ Returns the following dictionary:
 * pageSize[int]: The number of videos in the page (NOTE: This value may not be defined for this operation)
 
 ### Ti.Brightcove.getVideosByTags({...})
+##### Deprecated as of v2.1.0 and will be removed. 
+Brightcove recommends using `search_videos` as documented in their [API Reference docs](http://docs.brightcove.com/en/media/reference.html). `search_videos` will be added to this module in a future version.
+
 Gets videos from the Brightcove service with the matching tags.  Takes a dictionary argument,
 with the following properties:
 

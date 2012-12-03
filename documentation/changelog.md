@@ -1,6 +1,6 @@
 # Change Log
 <pre>
-v1.3.0	Updated to Brightcove's 2.3 SDKs, which handles long videoIds
+v2.1.0	Updated to Brightcove's 2.3 SDKs, which handles long videoIds
 		removing __getVideosByUserId()__ as it has been deprecated and removed from the SDK [MOD-997][MOD-1003]
 
 v1.2.1	Added activity indicators to example and fixed row sizing for Titanium Mobile 2.0.0 [MOD-617]
