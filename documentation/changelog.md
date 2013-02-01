@@ -1,5 +1,7 @@
 # Change Log
 <pre>
+v2.1.1  Added attribution and built with 2.1.3.GA to support x86 devices [MOD-1087][MOD-1104]
+	
 v2.1.0	removing __getVideosByUserId()__ as it has been deprecated and removed from the SDK [MOD-1003]
 
 v2.0.1	Added activity indicators to example and fixed row sizing for Titanium Mobile 2.0.0 [MOD-617]
