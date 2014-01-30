@@ -2,11 +2,11 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 2.1.1
+version: 2.1.2
 description: Module for interactions with the Brightcove media service
 author: Stephen Tramer
 license: Appcelerator Commercial License
-copyright: Copyright (c) 2010-2013 by Appcelerator, Inc.
+copyright: Copyright (c) 2010-2014 by Appcelerator, Inc.
 
 
 # these should not be edited
@@ -14,4 +14,4 @@ name: brightcove
 moduleid: ti.brightcove
 guid: 2c94b236-9c45-4202-835b-85bb13b261ae
 platform: iphone
-minsdk: 1.6.0
+minsdk: 2.0.2

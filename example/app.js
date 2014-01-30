@@ -5,8 +5,6 @@ if (Ti.Platform.name == 'android') {
     Brightcove.deliveryType = Brightcove.DELIVERY_HTTP;
 }
 
-var forceLoad = [ Ti.Media.createVideoPlayer ];
-
 var win = Ti.UI.createWindow({
     backgroundColor: 'white'
 });

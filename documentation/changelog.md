@@ -1,5 +1,7 @@
 # Change Log
 <pre>
+v2.1.2  Added metadata.json [MOD-882]
+
 v2.1.1	Added attribution [MOD-1087]
 	
 v2.1.0	Updated to Brightcove's 2.3 SDKs, which handles long videoIds
