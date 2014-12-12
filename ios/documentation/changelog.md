@@ -1,6 +1,6 @@
 # Change Log
 <pre>
-v2.2 	Updated module to support 64-bit.
+v2.2.0 	Updated module to support 64-bit. [MOD-18092]
 
 v2.1.2  Added metadata.json [MOD-882]
 
